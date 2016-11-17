@@ -17,25 +17,25 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="77dp"
-        android:id="@+id/button2" />
+        android:id="@+id/menu" />
 
     <Button
         android:text="Betal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:id="@+id/pay"
+        android:layout_below="@+id/design"
+        android:layout_alignLeft="@+id/design"
+        android:layout_alignStart="@+id/design" />
 
     <Button
         android:text="Design selv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:id="@+id/design"
+        android:layout_below="@+id/menu"
+        android:layout_alignLeft="@+id/menu"
+        android:layout_alignStart="@+id/menu" />
 </RelativeLayout>

@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SchoolActivity" />
-        <activity android:name=".Front_page"></activity>
+        <activity android:name=".Front_page" />
+        <activity android:name=".PayActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".DesignActivity"></activity>
     </application>
 
 </manifest>
