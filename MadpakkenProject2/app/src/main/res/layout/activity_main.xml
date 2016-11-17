@@ -58,8 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:layout_alignBaseline="@+id/main"
-        android:layout_alignBottom="@+id/main"
-        android:layout_centerHorizontal="true"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:layout_alignTop="@+id/main"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
