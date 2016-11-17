@@ -1,6 +1,5 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">MadpakkenProject</string>
+
     
     <string-array name="School_names">
         <item>Antvorskovskole Slagelse</item>
@@ -16,8 +15,6 @@
 
 
     </string-array>
-=======
     <string name="app_name">Madpakken</string>
     <string name="MenuSelection">menuSelection</string>
->>>>>>> origin/master
 </resources>

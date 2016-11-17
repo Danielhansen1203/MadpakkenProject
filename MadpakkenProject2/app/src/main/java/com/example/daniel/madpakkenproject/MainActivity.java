@@ -13,10 +13,4 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-    public void menuSelection(View v) {
-        //Choose menu
-        Button button =(Button) v;
-        startActivity(new Intent(getApplicationContext(), SchoolActivity.class));
-    }
 }
