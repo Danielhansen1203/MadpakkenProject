@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Spinner</string>
+
+    <string-array name="School_names">
+        <item>Antvorskovskole Slagelse</item>
+        <item>Valdemarsskolen Ringsted</item>
+        <item>Marievangsskolen Slagelse</item>
+        <item>Dagmarskolen Ringsted</item>
+        <item>Benløseskole Ringsted</item>
+        <item>Dyhrs skole Slagelse</item>
+
+    </string-array>
+
+
+
+
+</resources>

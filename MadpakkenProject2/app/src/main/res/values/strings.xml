@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MadpakkenProject</string>
+    
+    <string-array name="School_names">
+        <item>Antvorskovskole Slagelse</item>
+        <item>Marievangsskolen Slagelse</item>
+        <item>Nymarkskolen Slagelse</item>
+        <item>Dyhrs skole Slagelse</item>
+        <item>Søndermarksskolen Slagelse</item>
+        <item>Valdemarsskolen Ringsted</item>
+        <item>Benløseskole Ringsted</item>
+        <item>Dagmarskolen Ringsted</item>
+        <item>Sct.Josephskole Ringsted</item>
+        <item>Campusskolen Ringsted</item>
+
+
+    </string-array>
 </resources>
