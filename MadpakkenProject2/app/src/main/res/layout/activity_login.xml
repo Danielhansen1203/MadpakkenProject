@@ -11,14 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.daniel.madpakkenproject.LoginActivity">
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
 
     <Button
         android:text="Log ind"
@@ -59,4 +52,12 @@
         android:layout_below="@+id/etUsername"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
