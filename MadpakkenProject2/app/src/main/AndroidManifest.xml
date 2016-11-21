@@ -19,7 +19,9 @@
         <activity android:name=".Front_page" />
         <activity android:name=".PayActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".DesignActivity"></activity>
+        <activity android:name=".DesignActivity" />
+        <activity android:name=".Profile_page" />
+        <activity android:name=".AboutUs"></activity>
     </application>
 
 </manifest>

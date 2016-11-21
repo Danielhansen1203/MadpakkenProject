@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_pay"
+        android:title="@string/menu_action_pay"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_local_grocery_store_white_24dp"/>
+
+    <item
+        android:id="@+id/action_profil"
+        android:title="@string/menu_action_profil"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_log_ud"
+        android:title="@string/menu_action_log_ud"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_about_us"
+        android:title="@string/menu_action_about_us"
+        app:showAsAction="never" />
+
+
+</menu>
