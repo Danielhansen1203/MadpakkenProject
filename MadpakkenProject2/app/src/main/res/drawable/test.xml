@@ -3,6 +3,6 @@
     <item android:drawable="@drawable/plate" />
     <meta-data
         android:name="Test"
-        android:resource="XML_drawable"
+        android:resource="@drawable/plate"
         android:value="Plate" />
 </layer-list>
