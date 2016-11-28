@@ -1,6 +1,4 @@
 <resources>
-
-
     <string-array name="School_names">
         <item>Antvorskovskole Slagelse</item>
         <item>Marievangsskolen Slagelse</item>
@@ -23,4 +21,7 @@
     <string name="menu_action_log_ud">log ud</string>
     <string name="menu_action_Test">test</string>
     <string name="menu_action_pay">pay</string>
+
+    <!-- for use with sandwitch maker -->
+    <string name="no_ingredient">plate</string>
 </resources>
