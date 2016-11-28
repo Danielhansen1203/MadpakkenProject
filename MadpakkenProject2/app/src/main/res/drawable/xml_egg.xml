@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item
-        android:drawable="@drawable/friedegg" />
-
-    <meta-data
-        android:name="@string/ingredient_friedegg"
-        android:resource="@drawable/friedegg"
-        android:value="Egg" />
+    <item android:drawable="@drawable/friedegg" />
 
 </layer-list>

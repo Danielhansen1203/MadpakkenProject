@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item
-        android:drawable="@drawable/plate" />
-
-    <meta-data
-        android:name="@string/no_ingredient"
-        android:resource="@drawable/plate"
-        android:value="Plate" />
+    <item android:drawable="@drawable/plate" />
 
 </layer-list>

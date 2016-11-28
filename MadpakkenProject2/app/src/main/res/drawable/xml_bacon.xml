@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item
-        android:drawable="@drawable/bacon" />
-
-    <meta-data
-        android:name="@string/ingredient_bacon"
-        android:resource="@drawable/bacon"
-        android:value="Bacon" />
+    <item android:drawable="@drawable/bacon" />
 
 </layer-list>
