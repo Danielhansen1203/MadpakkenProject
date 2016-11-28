@@ -59,7 +59,7 @@
         android:id="@+id/imageView_ingredient_tomato" />
 
     <ImageView
-        app:srcCompat="@drawable/test"
+        app:srcCompat="@drawable/xml_plate"
         android:id="@+id/imageView_ingredient_target_04"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -68,7 +68,7 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        app:srcCompat="@drawable/test"
+        app:srcCompat="@drawable/xml_plate"
         android:id="@+id/imageView_ingredient_target_03"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -77,7 +77,7 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        app:srcCompat="@drawable/test"
+        app:srcCompat="@drawable/xml_plate"
         android:id="@+id/imageView_ingredient_target_02"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -86,7 +86,7 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        app:srcCompat="@drawable/test"
+        app:srcCompat="@drawable/xml_plate"
         android:id="@+id/imageView_ingredient_target_01"
         android:layout_width="80dp"
         android:layout_height="80dp"
