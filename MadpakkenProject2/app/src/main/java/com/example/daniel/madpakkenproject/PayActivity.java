@@ -27,6 +27,7 @@ public class PayActivity extends AppCompatActivity {
     String m_paypalClientID = "AQ0Zhk2BvZfTJliMIB4TmB0kw9Krhjl5sCyZwiuCs3RAyyiTJd_gPOcVwyRdyNDKiYdzDwgNBOAUgFHv";
     Intent m_service;
     int m_paypalRequestCode = 999;
+    int getTotal = 0;
 
 
 
@@ -35,7 +36,7 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
-       /* TextView showCartContent = (TextView)findViewById(R.id.showcart);
+        TextView showCartContent = (TextView)findViewById(R.id.showcart);
 
         final Button btn3 = (Button)findViewById(R.id.third);
 
@@ -45,6 +46,7 @@ public class PayActivity extends AppCompatActivity {
 
         String show = "";
 
+
         if (CartSize >0){
             for(int i=0;i<CartSize;i++) {
                 String pName = ct.getCart().getProducts(i).getProductName();
@@ -53,17 +55,28 @@ public class PayActivity extends AppCompatActivity {
 
                 String pDisc = ct.getCart().getProducts(i).getProductDesc();
 
-                show += "Product Name: "+pName+" "+"Price : "+pPrice+""+"Description : "+pDisc+""+
-                        "----------------------------------------";
-            }
-        }
+                getTotal += pPrice;
 
-        else {
-            show = "There is no Items in Shopping Cart";
+
+                show += "Product Name: "+pName+" "+"Price : "+pPrice+""+"Description : "+pDisc+""+
+                        "------------------------------------------------"+"";
+
+
+            }
+
+
 
             showCartContent.setText(show);
 
-            btn3.setOnClickListener(new View.OnClickListener() {
+        }
+
+        else {
+            show = "Der er intet i kurven";
+
+            showCartContent.setText(show);
+        }
+
+           /* btn3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(CartSize>0){
@@ -92,7 +105,7 @@ public class PayActivity extends AppCompatActivity {
 
     void pay(View view)
     {
-        PayPalPayment payment= new PayPalPayment(new BigDecimal(10), "DKK", "Samlet pris fra Madpakken", PayPalPayment.PAYMENT_INTENT_SALE);
+        PayPalPayment payment= new PayPalPayment(new BigDecimal(getTotal), "DKK", "Samlet pris fra Madpakken", PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent(this, PaymentActivity.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, m_configuration);
