@@ -28,5 +28,5 @@
     <string name="ingredient_cheese">cheese</string>
     <string name="ingredient_friedegg">egg</string>
     <string name="ingredient_salad">salad</string>
-    <string name="no_tomato">tomato</string>
+    <string name="ingredient_tomato">tomato</string>
 </resources>
