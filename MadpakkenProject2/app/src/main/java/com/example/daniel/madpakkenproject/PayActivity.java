@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,6 +36,7 @@ public class PayActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,9 @@ public class PayActivity extends AppCompatActivity {
 
         if (CartSize >0){
             for(int i=0;i<CartSize;i++) {
+
+
+
                 String pName = ct.getCart().getProducts(i).getProductName();
 
                 int pPrice = ct.getCart().getProducts(i).getProductPrice();
@@ -58,16 +66,15 @@ public class PayActivity extends AppCompatActivity {
 
                 getTotal += pPrice;
 
+                show += pName+" " + " " + "Pris : "+pPrice+'\n'+'\n';
 
-                show += "Product Name: "+pName+" "+"Price : "+pPrice+""+"Description : "+pDisc+""+
-                        "------------------------------------------------"+"";
 
 
             }
 
-
-
             showCartContent.setText(show);
+
+
 
         }
 
@@ -104,6 +111,17 @@ public class PayActivity extends AppCompatActivity {
         m_service = new Intent(this, PayPalService.class);
         m_service.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, m_configuration);
         startService(m_service);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mMenuinflater = getMenuInflater();
+        mMenuinflater.inflate(R.menu.profile_menu, menu);
+        return true;
     }
 
     void pay(View view)
@@ -141,4 +159,22 @@ public class PayActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_pay) {
+            Intent intent = new Intent(PayActivity.this, PayActivity.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_profil) {
+            Intent intent = new Intent(PayActivity.this, Profile_page.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_about_us) {
+            Intent intent = new Intent(PayActivity.this, AboutUs.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
