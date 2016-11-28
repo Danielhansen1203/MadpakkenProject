@@ -30,8 +30,7 @@ class DragListener implements View.OnDragListener
         {
             case DragEvent.ACTION_DRAG_STARTED:
 
-                Log.i("","DRAG_STARTED");
-                Log.d("", event.toString());
+                //Log.i("","DRAG_STARTED");
 
                 break;
             case DragEvent.ACTION_DRAG_ENTERED:
@@ -116,9 +115,10 @@ class DragListener implements View.OnDragListener
                 }
 
                 //update the tag on the drop target
-                dropTarget.setTag(dropped.getId());
+                //dropTarget.setTag(dropped.getId());
+                dropTarget.setTag(currentIngredient.getTag());
 
-                DesignActivity.setIngredientsOnPlatesIds(0, (int)dropTarget.getTag());
+                DesignActivity.setIngredientsOnPlatesIds(0, (String) dropTarget.getTag().toString());
 
                 //Log.i("","DRAG_DROP");
 

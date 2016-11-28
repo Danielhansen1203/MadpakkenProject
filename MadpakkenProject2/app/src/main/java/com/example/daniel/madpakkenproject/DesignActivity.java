@@ -1,12 +1,13 @@
 package com.example.daniel.madpakkenproject;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -30,7 +31,7 @@ public class DesignActivity extends AppCompatActivity {
     public Dictionary uiIds;
 
     //store what ingredients is on the 4 plates
-    private static int[] ingredientsOnPlatesIds;
+    private static String[] ingredientsOnPlatesIds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -86,11 +87,20 @@ public class DesignActivity extends AppCompatActivity {
         uiIds.put("plate03ID", ingredientChoice03.getId());
         uiIds.put("plate04ID", ingredientChoice04.getId());
 
-        ingredientsOnPlatesIds = new int[4];
-        ingredientsOnPlatesIds[0] = ingredientChoice01.getId();
-        ingredientsOnPlatesIds[1] = ingredientChoice02.getId();
-        ingredientsOnPlatesIds[2] = ingredientChoice03.getId();
-        ingredientsOnPlatesIds[3] = ingredientChoice04.getId();
+        //tag test
+        Object bacon = "bacon";
+        Object plade01 = "plade";
+        ingredient_bacon.setTag(bacon);
+        ingredientChoice01.setTag(plade01);
+        ingredientChoice02.setTag(plade01);
+        ingredientChoice03.setTag(plade01);
+        ingredientChoice04.setTag(plade01);
+
+        ingredientsOnPlatesIds = new String[4];
+        ingredientsOnPlatesIds[0] = ingredientChoice01.getTag().toString();
+        ingredientsOnPlatesIds[1] = ingredientChoice02.getTag().toString();
+        ingredientsOnPlatesIds[2] = ingredientChoice03.getTag().toString();
+        ingredientsOnPlatesIds[3] = ingredientChoice04.getTag().toString();
 
         //test/debug
         button = (Button) findViewById(R.id.button);
@@ -146,11 +156,11 @@ public class DesignActivity extends AppCompatActivity {
         return plateTemplate;
     }
 
-    public int[] getIngredientsOnPlatesIds ()
+    public String[] getIngredientsOnPlatesIds ()
     {
         return ingredientsOnPlatesIds;
     }
-    public static void setIngredientsOnPlatesIds (int index, int newValue)
+    public static void setIngredientsOnPlatesIds (int index, String newTag)
     {
         if (index > ingredientsOnPlatesIds.length -1)
         {
@@ -158,15 +168,17 @@ public class DesignActivity extends AppCompatActivity {
         }
         else
         {
-            ingredientsOnPlatesIds[index] = newValue;
+            ingredientsOnPlatesIds[index] = newTag;
         }
     }
+    //endregion
 
     public void onClick(View view)
     {
         infobox.setText("");
-        infobox.append("BaconID: " + uiIds.get("BaconID").toString() + " | ");
-        infobox.append("Plate01ID: " + getIngredientsOnPlatesIds()[0]);
+        infobox.append("BaconTag: " + ingredient_bacon.getTag());
+        infobox.append(" | ");
+        infobox.append("PlateTag: " + ingredientChoice01.getTag());
     }
 
 }
