@@ -24,4 +24,9 @@
 
     <!-- for use with sandwitch maker -->
     <string name="no_ingredient">plate</string>
+    <string name="ingredient_bacon">bacon</string>
+    <string name="ingredient_cheese">cheese</string>
+    <string name="ingredient_friedegg">egg</string>
+    <string name="ingredient_salad">salad</string>
+    <string name="no_tomato">tomato</string>
 </resources>

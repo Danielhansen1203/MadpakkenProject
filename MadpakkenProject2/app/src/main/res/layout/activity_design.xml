@@ -14,7 +14,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:srcCompat="@drawable/bacon"
+        app:srcCompat="@drawable/xml_bacon"
         android:id="@+id/imageView_ingredient_bacon"
         android:layout_alignTop="@+id/imageView_ingredient_target_01"
         android:layout_alignParentLeft="true"
@@ -23,7 +23,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:srcCompat="@drawable/friedegg"
+        app:srcCompat="@drawable/xml_egg"
         android:layout_alignTop="@+id/imageView_ingredient_target_02"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -32,7 +32,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:srcCompat="@drawable/salad"
+        app:srcCompat="@drawable/xml_salad"
         android:id="@+id/imageView_ingredient_salad"
         android:layout_below="@+id/imageView_ingredient_egg"
         android:layout_alignParentLeft="true"
@@ -41,7 +41,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:srcCompat="@drawable/cheese"
+        app:srcCompat="@drawable/xml_cheese"
         android:layout_alignTop="@+id/imageView_ingredient_target_04"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -50,7 +50,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:srcCompat="@drawable/tomato"
+        app:srcCompat="@drawable/xml_tomato"
         android:layout_alignTop="@+id/imageView_ingredient_bacon"
         android:layout_toRightOf="@+id/imageView_ingredient_bacon"
         android:layout_toEndOf="@+id/imageView_ingredient_bacon"
