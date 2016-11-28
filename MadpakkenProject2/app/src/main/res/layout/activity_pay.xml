@@ -7,17 +7,24 @@
     android:orientation="vertical"
     tools:context="com.example.daniel.madpakkenproject.PayActivity">
 
-    <Button
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Betal"
-        android:textSize="30sp"
-        android:onClick="pay"/>
+        android:id="@+id/showcart" />
+
 
     <TextView
         android:id="@+id/response"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Betal"
+        android:textSize="30sp"
+        android:onClick="pay"/>
 
 </LinearLayout>

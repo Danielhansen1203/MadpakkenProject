@@ -14,10 +14,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etUsername = (EditText) findViewByID(R.id.etUsername);
+       /* etUsername = (EditText) findViewByID(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
         bLogin = (Button) findViewById(R.id.bLogin);
 
-        bLogin.setOnClickListener(this);
+        bLogin.setOnClickListener(this);*/
     }
 }
