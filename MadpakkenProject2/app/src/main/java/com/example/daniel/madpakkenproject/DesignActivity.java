@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-
 public class DesignActivity extends AppCompatActivity {
 
     //debug
@@ -28,7 +25,7 @@ public class DesignActivity extends AppCompatActivity {
     private static Drawable plateTemplate;
 
     //hashtable to store all id's of ui elements
-    public Dictionary uiIds;
+    //public Dictionary uiIds;
 
     //store what ingredients is on the 4 plates
     private static String[] ingredientsOnPlatesIds;
@@ -53,8 +50,6 @@ public class DesignActivity extends AppCompatActivity {
 
         removeIngredient = (ImageView) findViewById(R.id.imageView_null);
 
-        plateTemplate  =  ingredientChoice01.getDrawable();
-
         //make ingredients draggable
         ingredient_bacon.setOnTouchListener(new TouchListener());
         ingredient_egg.setOnTouchListener(new TouchListener());
@@ -68,15 +63,17 @@ public class DesignActivity extends AppCompatActivity {
         ingredientChoice03.setOnDragListener(new DragListener(this));
         ingredientChoice04.setOnDragListener(new DragListener(this));
 
+        //allow ingredients to be dragged off the plates
         ingredientChoice01.setOnTouchListener(new TouchListener());
         ingredientChoice02.setOnTouchListener(new TouchListener());
         ingredientChoice03.setOnTouchListener(new TouchListener());
         ingredientChoice04.setOnTouchListener(new TouchListener());
 
+        //used to remove ingredients from the plates
         removeIngredient.setOnDragListener(new DragListener(this));
 
         //setup icon id's
-        uiIds = new Hashtable();
+        /*uiIds = new Hashtable();
         uiIds.put("BaconID", ingredient_bacon.getId());
         uiIds.put("CheeseID", ingredient_cheese.getId());
         uiIds.put("EggID", ingredient_egg.getId());
@@ -85,22 +82,33 @@ public class DesignActivity extends AppCompatActivity {
         uiIds.put("plate01ID", ingredientChoice01.getId());
         uiIds.put("plate02ID", ingredientChoice02.getId());
         uiIds.put("plate03ID", ingredientChoice03.getId());
-        uiIds.put("plate04ID", ingredientChoice04.getId());
+        uiIds.put("plate04ID", ingredientChoice04.getId());*/
 
         //tag test
-        Object bacon = "bacon";
-        Object plade01 = "plade";
-        ingredient_bacon.setTag(bacon);
-        ingredientChoice01.setTag(plade01);
-        ingredientChoice02.setTag(plade01);
-        ingredientChoice03.setTag(plade01);
-        ingredientChoice04.setTag(plade01);
+        Object baconTag = "bacon";
+        Object eggTag = "egg";
+        Object saladTag = "salad";
+        Object cheeseTag = "cheese";
+        Object tomatoTag = "tomato";
+        Object pladeTag = "plade";
+        ingredient_bacon.setTag(baconTag);
+        ingredient_egg.setTag(eggTag);
+        ingredient_salad.setTag(saladTag);
+        ingredient_cheese.setTag(cheeseTag);
+        ingredient_tomato.setTag(tomatoTag);
+        ingredientChoice01.setTag(pladeTag);
+        ingredientChoice02.setTag(pladeTag);
+        ingredientChoice03.setTag(pladeTag);
+        ingredientChoice04.setTag(pladeTag);
 
         ingredientsOnPlatesIds = new String[4];
         ingredientsOnPlatesIds[0] = ingredientChoice01.getTag().toString();
         ingredientsOnPlatesIds[1] = ingredientChoice02.getTag().toString();
         ingredientsOnPlatesIds[2] = ingredientChoice03.getTag().toString();
         ingredientsOnPlatesIds[3] = ingredientChoice04.getTag().toString();
+
+        //crate last to ensure it gets all the same settings as a normal plate
+        plateTemplate  =  ingredientChoice01.getDrawable();
 
         //test/debug
         button = (Button) findViewById(R.id.button);
