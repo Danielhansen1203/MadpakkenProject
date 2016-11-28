@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.daniel.madpakkenproject.PayActivity">
+    tools:context="com.example.daniel.madpakkenproject.PayActivity"
+    android:weightSum="1">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/showcart" />
-
 
     <TextView
         android:id="@+id/response"
@@ -23,8 +23,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Betal"
+        android:id="@+id/paynow"
         android:textSize="30sp"
-        android:onClick="pay"/>
+        android:onClick="pay" />
 
 </LinearLayout>

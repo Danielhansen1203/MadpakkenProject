@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 public class PayActivity extends AppCompatActivity {
 
     TextView m_response;
+    TextView m_paynow;
 
     PayPalConfiguration m_configuration;
     String m_paypalClientID = "AQ0Zhk2BvZfTJliMIB4TmB0kw9Krhjl5sCyZwiuCs3RAyyiTJd_gPOcVwyRdyNDKiYdzDwgNBOAUgFHv";
@@ -93,6 +94,8 @@ public class PayActivity extends AppCompatActivity {
 
 
         m_response = (TextView) findViewById(R.id.response);
+        m_paynow = (TextView) findViewById(R.id.paynow);
+        m_paynow.setText("Betal i alt: "+getTotal+" Kr");
 
         m_configuration = new PayPalConfiguration()
                 .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
