@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/plate" />
+    <meta-data
+        android:name="Test"
+        android:resource="XML_drawable"
+        android:value="Plate" />
+</layer-list>
