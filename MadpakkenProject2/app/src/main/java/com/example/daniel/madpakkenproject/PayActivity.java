@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +44,7 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
-        TextView showCartContent = (TextView)findViewById(R.id.showcart);
+        final LinearLayout showCartContent = (LinearLayout) findViewById(R.id.showcart);
 
         final Button btn3 = (Button)findViewById(R.id.third);
 
@@ -50,8 +52,8 @@ public class PayActivity extends AppCompatActivity {
 
         final int CartSize = ct.getCart().getCartsize();
 
-        String show = "";
 
+        final Button remove = new Button(this);
 
         if (CartSize >0){
             for(int i=0;i<CartSize;i++) {
@@ -60,28 +62,57 @@ public class PayActivity extends AppCompatActivity {
 
                 String pName = ct.getCart().getProducts(i).getProductName();
 
-                int pPrice = ct.getCart().getProducts(i).getProductPrice();
-
-                String pDisc = ct.getCart().getProducts(i).getProductDesc();
+                final int pPrice = ct.getCart().getProducts(i).getProductPrice();
 
                 getTotal += pPrice;
 
-                show += pName+" " + " " + "Pris : "+pPrice+'\n'+'\n';
+                TextView show = new TextView(this);
+                show.setText(pName+" Pris: "+pPrice);
 
+                final LinearLayout la = new LinearLayout(this);
+
+                la.setOrientation(LinearLayout.HORIZONTAL);
+
+                TextView tv = new TextView(this);
+
+
+                final Button btn1 = new Button(this);
+
+
+                btn1.setId(i+1);
+                btn1.setText("Remove");
+
+                la.addView(show);
+
+
+                final int index = i;
+
+                btn1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.i("TAG", "Index:"+index);
+
+                        ModelProducts productsObject = ct.getProducts(index);
+                        la.removeAllViews();
+                    }
+                });
+
+                la.addView(btn1);
+
+                showCartContent.addView(la);
 
 
             }
-
-            showCartContent.setText(show);
 
 
 
         }
 
         else {
-            show = "Der er intet i kurven";
 
-            showCartContent.setText(show);
+
+
+
         }
 
            /* btn3.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +129,7 @@ public class PayActivity extends AppCompatActivity {
                 }
             });
         }*/
+
 
 
         m_response = (TextView) findViewById(R.id.response);

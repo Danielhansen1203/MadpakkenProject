@@ -15,11 +15,10 @@
     </string-array>
     <string name="app_name">Madpakken</string>
     <string name="MenuSelection">menuSelection</string>
-    <string name="menu_action_setting">Setting</string>
-    <string name="menu_action_about_us">About us</string>
-    <string name="menu_action_profil">profil</string>
-    <string name="menu_action_log_ud">log ud</string>
-    <string name="menu_action_Test">test</string>
+    <string name="menu_action_setting">Indstillinger</string>
+    <string name="menu_action_about_us">Om os</string>
+    <string name="menu_action_profil">Profil</string>
+    <string name="menu_action_log_ud">Log ud</string>
     <string name="menu_action_pay">pay</string>
 
     <!-- for use with sandwitch maker -->

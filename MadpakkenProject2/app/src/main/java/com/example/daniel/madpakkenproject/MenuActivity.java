@@ -18,6 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class MenuActivity extends AppCompatActivity {
 
     @Override
@@ -32,7 +34,8 @@ public class MenuActivity extends AppCompatActivity {
 
         ModelProducts products = null;
 
-        for(int i=1; i<=7;i++){
+
+        for(int i=ct.getProductArraylistsize()+1; i<=7;i++){
 
             int Price =15+i;
 
@@ -113,7 +116,6 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
-
 
 
 
