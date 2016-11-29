@@ -133,6 +133,10 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_frontpage) {
+            Intent intent = new Intent(MenuActivity.this, Front_page.class);
+            startActivity(intent);
+        }
         if(item.getItemId() == R.id.action_pay) {
             Intent intent = new Intent(MenuActivity.this, PayActivity.class);
             startActivity(intent);

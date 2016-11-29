@@ -66,15 +66,12 @@ public class PayActivity extends AppCompatActivity {
 
                 getTotal += pPrice;
 
-                TextView show = new TextView(this);
+                final TextView show = new TextView(this);
                 show.setText(pName+" Pris: "+pPrice);
 
                 final LinearLayout la = new LinearLayout(this);
 
                 la.setOrientation(LinearLayout.HORIZONTAL);
-
-                TextView tv = new TextView(this);
-
 
                 final Button btn1 = new Button(this);
 
@@ -194,6 +191,10 @@ public class PayActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_frontpage) {
+            Intent intent = new Intent(PayActivity.this, Front_page.class);
+            startActivity(intent);
+        }
         if(item.getItemId() == R.id.action_pay) {
             Intent intent = new Intent(PayActivity.this, PayActivity.class);
             startActivity(intent);

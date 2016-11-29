@@ -39,6 +39,10 @@ public class AboutUs extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_frontpage) {
+            Intent intent = new Intent(AboutUs.this, Front_page.class);
+            startActivity(intent);
+        }
         if(item.getItemId() == R.id.action_pay) {
             Intent intent = new Intent(AboutUs.this, PayActivity.class);
             startActivity(intent);

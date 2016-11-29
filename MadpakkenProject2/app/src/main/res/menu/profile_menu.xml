@@ -10,6 +10,12 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_local_grocery_store_white_24dp"/>
 
+
+    <item
+        android:id="@+id/action_frontpage"
+        android:title="Til forsiden"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_profil"
         android:title="Profil"
