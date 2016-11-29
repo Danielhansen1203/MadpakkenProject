@@ -5,36 +5,10 @@
     android:id="@+id/activity_front_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.daniel.madpakkenproject.Front_page">
-
-    <Button
-        android:text="Menuer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="77dp"
-        android:id="@+id/menu" />
-
-    <Button
-        android:text="Betal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:id="@+id/pay"
-        android:layout_below="@+id/design"
-        android:layout_alignLeft="@+id/design"
-        android:layout_alignStart="@+id/design" />
-
-    <Button
-        android:text="Design selv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/design"
-        android:layout_below="@+id/menu"
-        android:layout_alignLeft="@+id/menu"
-        android:layout_alignStart="@+id/menu" />
+    android:background="@color/colorPrimary"
+    tools:context="com.example.daniel.madpakkenproject.Front_page"
+    android:orientation="vertical"
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -49,5 +23,59 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/prompt_welcome"
+        android:textColor="@color/textColor"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+
+        />
+
+    <Button
+        android:background="@drawable/button_selecter"
+        android:text="Menuer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:id="@+id/menu" />
+
+    <Button
+        android:text="Betal"
+        android:background="@drawable/button_selecter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/pay"
+        android:layout_below="@+id/design"
+        android:layout_alignLeft="@+id/design"
+        android:layout_alignStart="@+id/design" />
+
+    <Button
+        android:background="@drawable/button_selecter"
+        android:text="Design selv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/design"
+        android:layout_below="@+id/menu"
+        android:layout_alignLeft="@+id/menu"
+        android:layout_alignStart="@+id/menu" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
