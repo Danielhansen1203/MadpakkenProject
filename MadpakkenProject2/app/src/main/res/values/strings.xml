@@ -4,6 +4,8 @@
     <string name="prompt_password">Adgangskode</string>
     <string name="login_bn_label">Log ind</string>
     <string name="new_user_bn">Opret ny bruger</string>
+    <string name="login_page_bn">Log ind</string>
+
 
 
     <string name="MenuSelection">menuSelection</string>

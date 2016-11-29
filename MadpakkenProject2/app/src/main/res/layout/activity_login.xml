@@ -73,6 +73,8 @@
             android:layout_below="@+id/password"
             android:layout_marginTop="35dp"
             android:id="@+id/login_button"
+            android:background="@drawable/button_selecter"
+            android:textColor="@color/textColor"
             />
         <Button
             android:layout_width="match_parent"
@@ -83,6 +85,9 @@
             android:layout_below="@id/password"
             android:layout_marginTop="100dp"
             android:id="@+id/buttonReg"
+            android:background="@drawable/button_selecter"
+            android:textColor="@color/textColor"
+
             />
 
 
@@ -92,5 +97,9 @@
 
 
     </RelativeLayout>
+
+
+
+
 
 </LinearLayout>
