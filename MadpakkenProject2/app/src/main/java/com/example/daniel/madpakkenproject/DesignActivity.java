@@ -24,11 +24,14 @@ public class DesignActivity extends AppCompatActivity {
     //stores the icon used to reset a plate when an ingredient is moved
     private static Drawable plateTemplate;
 
+    //stores the default plade tag
+    private static Object defaultPladeTag;
+
     //hashtable to store all id's of ui elements
     //public Dictionary uiIds;
 
     //store what ingredients is on the 4 plates
-    private static String[] ingredientsOnPlatesIds;
+    private static String[] ingredientsOnPlatesTags;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,19 +61,19 @@ public class DesignActivity extends AppCompatActivity {
         ingredient_tomato.setOnTouchListener(new TouchListener());
 
         //make drop targets accept drops
-        ingredientChoice01.setOnDragListener(new DragListener(this));
-        ingredientChoice02.setOnDragListener(new DragListener(this));
-        ingredientChoice03.setOnDragListener(new DragListener(this));
-        ingredientChoice04.setOnDragListener(new DragListener(this));
+        ingredientChoice01.setOnDragListener(new DragListener(this, 0));
+        ingredientChoice02.setOnDragListener(new DragListener(this, 1));
+        ingredientChoice03.setOnDragListener(new DragListener(this, 2));
+        ingredientChoice04.setOnDragListener(new DragListener(this, 3));
 
         //allow ingredients to be dragged off the plates
-        ingredientChoice01.setOnTouchListener(new TouchListener());
-        ingredientChoice02.setOnTouchListener(new TouchListener());
-        ingredientChoice03.setOnTouchListener(new TouchListener());
-        ingredientChoice04.setOnTouchListener(new TouchListener());
+        ingredientChoice01.setOnTouchListener(new TouchListener("0"));
+        ingredientChoice02.setOnTouchListener(new TouchListener("1"));
+        ingredientChoice03.setOnTouchListener(new TouchListener("2"));
+        ingredientChoice04.setOnTouchListener(new TouchListener("3"));
 
         //used to remove ingredients from the plates
-        removeIngredient.setOnDragListener(new DragListener(this));
+        removeIngredient.setOnDragListener(new DragListener(this, 4));
 
         //setup icon id's
         /*uiIds = new Hashtable();
@@ -84,31 +87,34 @@ public class DesignActivity extends AppCompatActivity {
         uiIds.put("plate03ID", ingredientChoice03.getId());
         uiIds.put("plate04ID", ingredientChoice04.getId());*/
 
-        //tag test
-        Object baconTag = "bacon";
-        Object eggTag = "egg";
-        Object saladTag = "salad";
-        Object cheeseTag = "cheese";
-        Object tomatoTag = "tomato";
-        Object pladeTag = "plade";
+        //setup tags on XML drawable tags
+        Object baconTag = getString(R.string.ingredient_bacon);
+        Object eggTag = getString(R.string.ingredient_friedegg);
+        Object saladTag = getString(R.string.ingredient_salad);
+        Object cheeseTag = getString(R.string.ingredient_cheese);
+        Object tomatoTag = getString(R.string.ingredient_tomato);
+        Object plateTag = getString(R.string.no_ingredient);
         ingredient_bacon.setTag(baconTag);
         ingredient_egg.setTag(eggTag);
         ingredient_salad.setTag(saladTag);
         ingredient_cheese.setTag(cheeseTag);
         ingredient_tomato.setTag(tomatoTag);
-        ingredientChoice01.setTag(pladeTag);
-        ingredientChoice02.setTag(pladeTag);
-        ingredientChoice03.setTag(pladeTag);
-        ingredientChoice04.setTag(pladeTag);
+        ingredientChoice01.setTag(plateTag);
+        ingredientChoice02.setTag(plateTag);
+        ingredientChoice03.setTag(plateTag);
+        ingredientChoice04.setTag(plateTag);
 
-        ingredientsOnPlatesIds = new String[4];
-        ingredientsOnPlatesIds[0] = ingredientChoice01.getTag().toString();
-        ingredientsOnPlatesIds[1] = ingredientChoice02.getTag().toString();
-        ingredientsOnPlatesIds[2] = ingredientChoice03.getTag().toString();
-        ingredientsOnPlatesIds[3] = ingredientChoice04.getTag().toString();
+        ingredientsOnPlatesTags = new String[4];
+        ingredientsOnPlatesTags[0] = ingredientChoice01.getTag().toString();
+        ingredientsOnPlatesTags[1] = ingredientChoice02.getTag().toString();
+        ingredientsOnPlatesTags[2] = ingredientChoice03.getTag().toString();
+        ingredientsOnPlatesTags[3] = ingredientChoice04.getTag().toString();
 
-        //crate last to ensure it gets all the same settings as a normal plate
+        //create last to ensure it gets all the same settings as a normal plate
         plateTemplate  =  ingredientChoice01.getDrawable();
+
+        //get reset tag from strings.xml
+        defaultPladeTag = getString(R.string.no_ingredient);
 
         //test/debug
         button = (Button) findViewById(R.id.button);
@@ -164,19 +170,25 @@ public class DesignActivity extends AppCompatActivity {
         return plateTemplate;
     }
 
-    public String[] getIngredientsOnPlatesIds ()
+    public static Object getdefaultPladeTag()
     {
-        return ingredientsOnPlatesIds;
+        return defaultPladeTag;
+    }
+
+    public String[] getIngredientsOnPlatesTags()
+    {
+        return ingredientsOnPlatesTags;
     }
     public static void setIngredientsOnPlatesIds (int index, String newTag)
     {
-        if (index > ingredientsOnPlatesIds.length -1)
+        if (index > ingredientsOnPlatesTags.length -1)
         {
             return;
         }
         else
         {
-            ingredientsOnPlatesIds[index] = newTag;
+            ingredientsOnPlatesTags[index] = newTag;
+            //Log.d("New tag on ","" + index);
         }
     }
     //endregion
@@ -184,9 +196,9 @@ public class DesignActivity extends AppCompatActivity {
     public void onClick(View view)
     {
         infobox.setText("");
-        infobox.append("BaconTag: " + ingredient_bacon.getTag());
-        infobox.append(" | ");
-        infobox.append("PlateTag: " + ingredientChoice01.getTag());
+        infobox.append("getIngredientsOnPlatesTags()[0]: " + getIngredientsOnPlatesTags()[0]);
+        infobox.append("   ");
+        infobox.append("getIngredientsOnPlatesTags()[1]: " + getIngredientsOnPlatesTags()[1]);
     }
 
 }

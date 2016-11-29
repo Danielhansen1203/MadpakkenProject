@@ -7,6 +7,22 @@ import android.view.View;
 //Whatever object that has this on it can be dragged
 final class TouchListener implements View.OnTouchListener
 {
+    private String plateNum = "";
+
+    public TouchListener()
+    {
+        if (plateNum.isEmpty())
+        {
+            plateNum = "-1";
+        }
+    }
+
+    public TouchListener(String plateNumber)
+    {
+        this(); //scaffolding
+        this.plateNum = plateNumber;
+    }
+
     public boolean onTouch(View view, MotionEvent motionEvent)
     {
         if(motionEvent.getAction() == MotionEvent.ACTION_DOWN)
@@ -16,7 +32,7 @@ final class TouchListener implements View.OnTouchListener
             //setup drag
             //used to temperately store the data the user grabs
             //it acts likes a clip board and is mostly used for copy paste
-            ClipData data = ClipData.newPlainText("","");
+            ClipData data = ClipData.newPlainText(plateNum,"");
 
             //A view represents the basic building block for user interface components
             //it's just a block with some ui data in it
