@@ -22,16 +22,9 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".DesignActivity" />
         <activity android:name=".Profile_page" />
-<<<<<<< HEAD
         <activity android:name=".AboutUs"></activity>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".RegisterActivity"/>
-        
-        
-        
-=======
-        <activity android:name=".AboutUs" />
->>>>>>> 93588ecfc95e7a1dd8c33c66d1f40cf372173369
     </application>
 
 
