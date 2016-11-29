@@ -6,25 +6,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    Button main;
+    Button buttonl;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        main = (Button) findViewById(R.id.main);
-        main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Front_page.class);
-                startActivity(intent);
-            }
-        });
+        buttonl = (Button) findViewById(R.id.buttonl);
+        buttonl.setOnClickListener(this);
 
     }
 
+
+    private void buttonlClick()
+    {
+        startActivity(new Intent("com.example.daniel.madpakkenproject.LoginActivity"));
+}
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.buttonl:
+                buttonlClick();
+                break;
+        }
+    }
 }

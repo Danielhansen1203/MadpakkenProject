@@ -25,40 +25,21 @@
         android:layout_marginTop="16dp" />
 
     <TextView
-        android:text="Vælg din skole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_marginTop="36dp"
-        android:textSize="24sp"
-        android:layout_below="@+id/main"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Vælg skole"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_below="@+id/spinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:entries="@array/School_names"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
-
-    <TextView
         android:text="Madpakken"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textSize="36sp"
-        android:layout_alignTop="@+id/main"
+        android:layout_alignBottom="@+id/main"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Log Ind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonl"
+        android:layout_below="@+id/main"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="93dp" />
 </RelativeLayout>

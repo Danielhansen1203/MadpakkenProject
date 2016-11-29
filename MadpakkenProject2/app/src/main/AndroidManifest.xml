@@ -24,4 +24,12 @@
         <activity android:name=".AboutUs"></activity>
     </application>
 
+    <activity android:name=".LoginActivity">
+        <intent-filter>
+            <action android:name="com.example.daniel.madpakkenproject.LoginActivity" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
+
 </manifest>

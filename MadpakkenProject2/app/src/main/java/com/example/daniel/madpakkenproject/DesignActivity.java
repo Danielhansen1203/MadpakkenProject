@@ -93,7 +93,7 @@ public class DesignActivity extends AppCompatActivity {
         ingredientsOnPlatesIds[3] = ingredientChoice04.getId();
 
         //test/debug
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.buttonl);
         infobox = (TextView) findViewById(R.id.info);
     }
 
