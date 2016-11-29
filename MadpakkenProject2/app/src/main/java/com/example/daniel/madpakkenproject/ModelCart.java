@@ -15,10 +15,15 @@ public class ModelCart {
     public void setProducts(ModelProducts Products){
         cartItems.add(Products);
     }
+    public void removeProducts(ModelProducts Products){cartItems.remove(Products);
+    }
     public int getCartsize(){
+
 
         return cartItems.size();
     }
+
+
     public boolean CheckProductInCart(ModelProducts aproduct){
         return cartItems.contains(aproduct);
     }

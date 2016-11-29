@@ -38,10 +38,13 @@ public class PayActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+
+        m_paynow = (TextView) findViewById(R.id.paynow);
 
         //The layout that will show what we got in the cart
         final LinearLayout showCartContent = (LinearLayout) findViewById(R.id.showcart);
@@ -75,6 +78,9 @@ public class PayActivity extends AppCompatActivity {
 
                 la.addView(show);
 
+                la.addView(btn1);
+
+                showCartContent.addView(la);
 
                 final int index = i;
 
@@ -85,13 +91,14 @@ public class PayActivity extends AppCompatActivity {
                         Log.i("TAG", "Index:"+index);
 
                         ModelProducts productsObject = ct.getProducts(index);
+                        ct.getCart().removeProducts(ct.getProducts(index));
                         la.removeAllViews();
+                        getTotal -= pPrice;
+                        m_paynow.setText("Betal i alt: "+getTotal+" Kr");
+
+
                     }
                 });
-
-                la.addView(btn1);
-
-                showCartContent.addView(la);
 
 
             }
@@ -109,7 +116,7 @@ public class PayActivity extends AppCompatActivity {
 
 
         m_response = (TextView) findViewById(R.id.response);
-        m_paynow = (TextView) findViewById(R.id.paynow);
+
         m_paynow.setText("Betal i alt: "+getTotal+" Kr");
 
         //Paypal configuration

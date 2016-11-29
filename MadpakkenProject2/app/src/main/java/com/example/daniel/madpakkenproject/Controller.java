@@ -18,6 +18,7 @@ public class Controller extends Application {
     public void  setProducts(ModelProducts products){
         myproducts.add(products);
     }
+    public void removeProducts(ModelProducts products) { myproducts.remove(products);}
     public ModelCart getCart(){
         return myCart;
     }
