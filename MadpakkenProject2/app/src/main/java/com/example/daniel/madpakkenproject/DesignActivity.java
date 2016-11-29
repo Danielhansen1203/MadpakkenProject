@@ -1,8 +1,13 @@
 package com.example.daniel.madpakkenproject;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +40,10 @@ public class DesignActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design);
+
+        //Creating an toolbar
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         //assign variables to their XML counter parts
         ingredientChoice01 = (ImageView) findViewById(R.id.imageView_ingredient_target_01);
@@ -190,4 +199,33 @@ public class DesignActivity extends AppCompatActivity {
         infobox.append("plateTag [3]: " + getIngredientsOnPlatesTags()[3]);
     }
 
+    //Creating the menu in the right corner
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mMenuinflater = getMenuInflater();
+        mMenuinflater.inflate(R.menu.profile_menu, menu);
+        return true;
+    }
+
+    //Creating link to diffrent pages
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_frontpage) {
+            Intent intent = new Intent(DesignActivity.this, Front_page.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_pay) {
+            Intent intent = new Intent(DesignActivity.this, PayActivity.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_profil) {
+            Intent intent = new Intent(DesignActivity.this, Profile_page.class);
+            startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_about_us) {
+            Intent intent = new Intent(DesignActivity.this, AboutUs.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

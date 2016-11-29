@@ -74,7 +74,7 @@ public class PayActivity extends AppCompatActivity {
 
 
                 btn1.setId(i+1);
-                btn1.setText("Remove");
+                btn1.setText("Fjern fra kurv");
 
                 la.addView(show);
 
