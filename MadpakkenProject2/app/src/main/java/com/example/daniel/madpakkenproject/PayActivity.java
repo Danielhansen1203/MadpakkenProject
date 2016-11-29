@@ -36,9 +36,6 @@ public class PayActivity extends AppCompatActivity {
     int getTotal = 0;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +87,6 @@ public class PayActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Log.i("TAG", "Index:"+index);
 
-                        ModelProducts productsObject = ct.getProducts(index);
                         ct.getCart().removeProducts(ct.getProducts(index));
                         la.removeAllViews();
                         getTotal -= pPrice;
@@ -168,9 +164,11 @@ public class PayActivity extends AppCompatActivity {
                 {
                     String state = confirmation.getProofOfPayment().getState();
 
-                    if(state.equals("approved"))
+                    if(state.equals("approved")) {
                         m_response.setText("Betalingen er nu gennemført");
-
+                        getTotal = 0;
+                        m_paynow.setText("Betal i alt: "+getTotal+" Kr");
+                    }
                     else
                         m_response.setText("Fejl i betalingen");
                 }

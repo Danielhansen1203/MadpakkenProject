@@ -15,8 +15,8 @@ public class ModelCart {
     public void setProducts(ModelProducts Products){
         cartItems.add(Products);
     }
-    public void removeProducts(ModelProducts Products){cartItems.remove(Products);
-    }
+    public void removeProducts(ModelProducts Products){cartItems.remove(Products);}
+    public void removeAllProducts(ModelProducts Products){cartItems.removeAll(cartItems);}
     public int getCartsize(){
 
 

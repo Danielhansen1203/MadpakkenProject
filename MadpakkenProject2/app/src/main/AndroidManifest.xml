@@ -23,7 +23,6 @@
         <activity android:name=".DesignActivity" />
         <activity android:name=".Profile_page" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".Pay2"></activity>
     </application>
 
 </manifest>
