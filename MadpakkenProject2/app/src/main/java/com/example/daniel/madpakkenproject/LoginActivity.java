@@ -18,6 +18,8 @@ public class LoginActivity extends AppCompatActivity {
 
         Button buttonReg = (Button) findViewById(R.id.buttonReg);
         buttonReg.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), RegisterActivity.class);
