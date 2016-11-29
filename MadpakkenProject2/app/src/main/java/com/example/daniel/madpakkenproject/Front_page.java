@@ -17,6 +17,7 @@ public class Front_page extends AppCompatActivity {
     Button design;
     Button pay;
 
+    //The buttons is assigned to go to different pages
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,7 @@ public class Front_page extends AppCompatActivity {
 
     }
 
+    //Creating the menu in the right corner
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mMenuinflater = getMenuInflater();
@@ -62,6 +64,7 @@ public class Front_page extends AppCompatActivity {
         return true;
     }
 
+    //Creating link to diffrent pages
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.action_pay) {

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 /**
  * Created by Daniel on 28-11-2016.
  */
+
+//Creating an array whit products
 public class Controller extends Application {
     private ArrayList<ModelProducts> myproducts = new ArrayList<ModelProducts>();
     private ModelCart myCart = new ModelCart();

@@ -29,7 +29,6 @@ public class PayActivity extends AppCompatActivity {
 
     TextView m_response;
     TextView m_paynow;
-
     PayPalConfiguration m_configuration;
     String m_paypalClientID = "AQ0Zhk2BvZfTJliMIB4TmB0kw9Krhjl5sCyZwiuCs3RAyyiTJd_gPOcVwyRdyNDKiYdzDwgNBOAUgFHv";
     Intent m_service;
@@ -44,21 +43,15 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
+        //The layout that will show what we got in the cart
         final LinearLayout showCartContent = (LinearLayout) findViewById(R.id.showcart);
-
-        final Button btn3 = (Button)findViewById(R.id.third);
 
         final Controller ct = (Controller)getApplicationContext();
 
         final int CartSize = ct.getCart().getCartsize();
 
-
-        final Button remove = new Button(this);
-
         if (CartSize >0){
             for(int i=0;i<CartSize;i++) {
-
-
 
                 String pName = ct.getCart().getProducts(i).getProductName();
 
@@ -67,6 +60,7 @@ public class PayActivity extends AppCompatActivity {
                 getTotal += pPrice;
 
                 final TextView show = new TextView(this);
+
                 show.setText(pName+" Pris: "+pPrice);
 
                 final LinearLayout la = new LinearLayout(this);
@@ -84,6 +78,7 @@ public class PayActivity extends AppCompatActivity {
 
                 final int index = i;
 
+                //This will command what the "Remove" button will do
                 btn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -112,27 +107,12 @@ public class PayActivity extends AppCompatActivity {
 
         }
 
-           /* btn3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(CartSize>0){
-
-                        Intent i = new Intent(getBaseContext(),PayActivity.class);
-                        startActivity(i);
-
-
-                    }else
-                        Toast.makeText(getApplicationContext(), "Shopping Cart is Empty", Toast.LENGTH_LONG).show();
-                }
-            });
-        }*/
-
-
 
         m_response = (TextView) findViewById(R.id.response);
         m_paynow = (TextView) findViewById(R.id.paynow);
         m_paynow.setText("Betal i alt: "+getTotal+" Kr");
 
+        //Paypal configuration
         m_configuration = new PayPalConfiguration()
                 .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
                 .clientId(m_paypalClientID);
@@ -141,11 +121,13 @@ public class PayActivity extends AppCompatActivity {
         m_service.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, m_configuration);
         startService(m_service);
 
+        //The toolbar in the top of the app
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
     }
 
+    //Creating the menu in the right corner
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mMenuinflater = getMenuInflater();
@@ -153,6 +135,7 @@ public class PayActivity extends AppCompatActivity {
         return true;
     }
 
+    //This is what we will send to PayPal
     void pay(View view)
     {
         PayPalPayment payment= new PayPalPayment(new BigDecimal(getTotal), "DKK", "Samlet pris fra Madpakken", PayPalPayment.PAYMENT_INTENT_SALE);
@@ -163,6 +146,7 @@ public class PayActivity extends AppCompatActivity {
         startActivityForResult(intent, m_paypalRequestCode);
     }
 
+    //The paypal returns an answer and we handle this
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -189,6 +173,7 @@ public class PayActivity extends AppCompatActivity {
         }
     }
 
+    //Creating link to diffrent pages
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.action_frontpage) {

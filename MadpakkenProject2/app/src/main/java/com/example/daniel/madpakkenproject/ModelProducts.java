@@ -3,6 +3,8 @@ package com.example.daniel.madpakkenproject;
 /**
  * Created by Daniel on 28-11-2016.
  */
+
+//Creating products
 public class ModelProducts {
     private String productName;
     private String productDesc;

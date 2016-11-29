@@ -34,7 +34,7 @@ public class MenuActivity extends AppCompatActivity {
 
         ModelProducts products = null;
 
-
+//Creating an array of products
         for(int i=ct.getProductArraylistsize()+1; i<=7;i++){
 
             int Price =15+i;
@@ -78,6 +78,7 @@ public class MenuActivity extends AppCompatActivity {
 
             final int index = j;
 
+            //The Button is told what to do
             btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -119,11 +120,13 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
+        //Creating an toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
     }
 
+    //Creating the menu in the right corner
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mMenuinflater = getMenuInflater();
@@ -131,6 +134,7 @@ public class MenuActivity extends AppCompatActivity {
         return true;
     }
 
+    //Creating link to diffrent pages
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.action_frontpage) {

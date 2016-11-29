@@ -5,6 +5,8 @@ import java.util.ArrayList;
 /**
  * Created by Daniel on 28-11-2016.
  */
+
+//This class puts products in our cart so we can see how many we got
 public class ModelCart {
     private ArrayList<ModelProducts> cartItems = new ArrayList<ModelProducts>();
     public ModelProducts getProducts(int position){
