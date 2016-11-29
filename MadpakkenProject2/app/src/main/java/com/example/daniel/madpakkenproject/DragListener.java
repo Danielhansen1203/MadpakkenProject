@@ -1,7 +1,6 @@
 package com.example.daniel.madpakkenproject;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -125,7 +124,7 @@ class DragListener implements View.OnDragListener
                     DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(otherPlateId), currentIngredient.getTag().toString());
                     break;
                 }
-
+                /*
                 //if an item has already been dropped here, the drop target will have a tag
                 if(tag != null)
                 {
@@ -140,16 +139,9 @@ class DragListener implements View.OnDragListener
                     {
                         Log.e("ERROR: ", ne.toString());
                     }
-                    /*
-                    //set the original ingredient visible again
-                    int intTag = Integer.parseInt(tag.toString());
-                    this.activity.findViewById(intTag).setVisibility(View.VISIBLE);
-                    //this.activity.findViewById((int)tag).setVisibility(View.VISIBLE);
-                    */
-                }
+                }*/
 
                 //update the tag on the drop target
-                //dropTarget.setTag(dropped.getId());
                 dropTarget.setTag(currentIngredient.getTag());
 
                 DesignActivity.setIngredientsOnPlatesIds(pladeNumber, dropTarget.getTag().toString());
