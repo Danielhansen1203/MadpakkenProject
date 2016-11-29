@@ -1,20 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context="com.example.daniel.madpakkenproject.LoginActivity"
-    >
+    android:orientation="vertical">
 
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="236dp"
-        android:id="@+id/buttonReg" />
-</RelativeLayout>
+        android:text="@string/app_name"
+        android:textColor="@color/textColor"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:id="@+id/textview" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prompt_email"
+            android:textColor="@color/textColor"
+            android:textSize="18dp"
+            android:id="@+id/tx1"
+            android:layout_alignParentLeft="true"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tx1"
+            android:id="@+id/email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/textColor"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prompt_password"
+            android:textColor="@color/textColor"
+            android:textSize="18dp"
+            android:id="@+id/tx2"
+            android:layout_marginTop="17dp"
+            android:layout_below="@+id/email"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tx2"
+            android:id="@+id/password"
+            android:inputType="textPassword"
+            android:textColor="@color/textColor"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_bn_label"
+            style="?android:textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="35dp"
+            android:id="@+id/login_button"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_user_bn"
+            style="?android:textAppearanceSmall"
+            android:textStyle="bold"
+            android:layout_below="@id/password"
+            android:layout_marginTop="100dp"
+            android:id="@+id/buttonReg"
+            />
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
