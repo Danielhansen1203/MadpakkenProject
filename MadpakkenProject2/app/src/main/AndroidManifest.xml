@@ -22,14 +22,13 @@
         <activity android:name=".DesignActivity" />
         <activity android:name=".Profile_page" />
         <activity android:name=".AboutUs"></activity>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        
+        
+        
     </application>
 
-    <activity android:name=".LoginActivity">
-        <intent-filter>
-            <action android:name="com.example.daniel.madpakkenproject.LoginActivity" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-    </activity>
 
 </manifest>

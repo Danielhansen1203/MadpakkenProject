@@ -34,12 +34,13 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/buttonl"
         android:text="Log Ind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonl"
         android:layout_below="@+id/main"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="93dp" />
+        android:layout_marginTop="75dp" />
+
 </RelativeLayout>
