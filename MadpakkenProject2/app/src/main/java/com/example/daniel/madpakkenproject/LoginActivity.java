@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+<<<<<<< HEAD
         Button buttonReg = (Button) findViewById(R.id.buttonReg);
         buttonReg.setOnClickListener(new View.OnClickListener() {
 
@@ -27,5 +28,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+=======
+       /* etUsername = (EditText) findViewByID(R.id.etUsername);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        bLogin = (Button) findViewById(R.id.bLogin);
+
+        bLogin.setOnClickListener(this);*/
+>>>>>>> 93588ecfc95e7a1dd8c33c66d1f40cf372173369
     }
 }

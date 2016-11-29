@@ -3,8 +3,9 @@
     package="com.example.daniel.madpakkenproject">
 
     <application
+        android:name="com.example.daniel.madpakkenproject.Controller"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/sandwich"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -21,12 +22,16 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".DesignActivity" />
         <activity android:name=".Profile_page" />
+<<<<<<< HEAD
         <activity android:name=".AboutUs"></activity>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".RegisterActivity"/>
         
         
         
+=======
+        <activity android:name=".AboutUs" />
+>>>>>>> 93588ecfc95e7a1dd8c33c66d1f40cf372173369
     </application>
 
 

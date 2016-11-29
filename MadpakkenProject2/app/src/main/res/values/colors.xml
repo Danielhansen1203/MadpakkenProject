@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#1A237E</color>
     <color name="colorAccent">#2196F3</color>
     <color name="textColor">#E8EAF6</color>
     <color name="buttonColor">#303F9F</color>
+=======
+    <color name="colorPrimary">#78cf1a</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+>>>>>>> 93588ecfc95e7a1dd8c33c66d1f40cf372173369
 </resources>

@@ -43,4 +43,18 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="75dp" />
 
+<<<<<<< HEAD
+=======
+    <TextView
+        android:text="Madpakken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="36sp"
+        android:layout_alignTop="@+id/main"
+        android:layout_centerHorizontal="true" />
+
+
+
+>>>>>>> 93588ecfc95e7a1dd8c33c66d1f40cf372173369
 </RelativeLayout>
