@@ -195,10 +195,15 @@ public class DesignActivity extends AppCompatActivity {
 
     public void onClick(View view)
     {
+        //infobox.setSingleLine(false);
         infobox.setText("");
-        infobox.append("getIngredientsOnPlatesTags()[0]: " + getIngredientsOnPlatesTags()[0]);
-        infobox.append("   ");
-        infobox.append("getIngredientsOnPlatesTags()[1]: " + getIngredientsOnPlatesTags()[1]);
+        infobox.append("plateTag [0]: " + getIngredientsOnPlatesTags()[0]);
+        infobox.append(System.getProperty("line.separator"));
+        infobox.append("plateTag [1]: " + getIngredientsOnPlatesTags()[1]);
+        infobox.append(System.getProperty("line.separator"));
+        infobox.append("plateTag [2]: " + getIngredientsOnPlatesTags()[2]);
+        infobox.append(System.getProperty("line.separator"));
+        infobox.append("plateTag [3]: " + getIngredientsOnPlatesTags()[3]);
     }
 
 }

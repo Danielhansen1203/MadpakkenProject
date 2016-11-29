@@ -90,7 +90,7 @@ class DragListener implements View.OnDragListener
                     ((ImageView) currentIngredient).setImageDrawable(DesignActivity.getPlateTemplate());
                     currentIngredient.setTag(defaultPladeTag);
                     //TODO use currentIgredient in place of 0
-                    DesignActivity.setIngredientsOnPlatesIds(0, defaultPladeTag.toString());
+                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(event.getClipDescription().getLabel().toString()), defaultPladeTag.toString());
                     break;
                 }
                 //prevent ingredients from being dropped in the remove ingredient imageview
