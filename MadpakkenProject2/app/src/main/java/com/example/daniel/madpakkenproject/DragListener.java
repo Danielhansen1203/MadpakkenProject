@@ -15,40 +15,39 @@ class DragListener implements View.OnDragListener
     //We must have the current activity (page)
     private Activity activity;
 
-    //We need to know what plade is being used
-    private int pladeNumber;
+    //We need to know what plate is being used
+    private int pladeNumber = 0;
+
+    public DragListener(Activity a)
+    {
+        this.activity = a;
+    }
 
     public DragListener(Activity a, int PladeIndex)
     {
-        this.activity = a;
+        this(a); //scaffolding
         this.pladeNumber = PladeIndex;
     }
 
     @Override
     public boolean onDrag(View v, DragEvent event)
     {
-
         //handle drag events
         //execute different actions depending on what's happening
         switch (event.getAction())
         {
             case DragEvent.ACTION_DRAG_STARTED:
-
-                //Log.i("","DRAG_STARTED");
-
                 break;
             case DragEvent.ACTION_DRAG_ENTERED:
-
-                //Log.i("","DRAG_ENTERED");
-
                 break;
             case DragEvent.ACTION_DRAG_EXITED:
-
-                //Log.i("","DRAG_EXITED");
-
                 break;
             case DragEvent.ACTION_DROP:
 
+                //When moving an ingredient that's already on a plate
+                //we need the id of the plate it came from
+                String otherPlateId = (String) event.getClipDescription().getLabel().toString();
+                
                 //get the current ingredient being dropped
                 View currentIngredient = (View) event.getLocalState();
                 //get the image view of ingredient being dropped
@@ -72,7 +71,7 @@ class DragListener implements View.OnDragListener
                 ingredientIds.add(DesignActivity.getIngredient_tomato().getId());
 
                 //get the tag of the drop target
-                Object defaultPladeTag = DesignActivity.getdefaultPladeTag();
+                Object defaultPladeTag = DesignActivity.getdefaultPlateTag();
                 dropTarget.setTag(defaultPladeTag);
                 Object tag = dropTarget.getTag();
 
@@ -89,8 +88,7 @@ class DragListener implements View.OnDragListener
                     //in this case the plate is 'currentIngredient'
                     ((ImageView) currentIngredient).setImageDrawable(DesignActivity.getPlateTemplate());
                     currentIngredient.setTag(defaultPladeTag);
-                    //TODO use currentIgredient in place of 0
-                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(event.getClipDescription().getLabel().toString()), defaultPladeTag.toString());
+                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(otherPlateId), defaultPladeTag.toString());
                     break;
                 }
                 //prevent ingredients from being dropped in the remove ingredient imageview
@@ -106,10 +104,6 @@ class DragListener implements View.OnDragListener
 
                 //if an ingredient is dragged from one plate to another
                 //reset the first plate
-                //***DEBUG***
-                Object cTag = currentIngredient.getTag();
-                Object dTag = dropTarget.getTag();
-                //***DEBUG***
                 if(plateIds.contains(dropped.getId()))
                 {
                     //reset image on the old plate
@@ -121,21 +115,14 @@ class DragListener implements View.OnDragListener
                     dropTarget.setTag(currentIngredient.getTag());
 
                     //update tags
-                    //TODO find a way to get the DragListener instance from currentIngredient
                     //set old tag on new plate
-                    //DEBUG: DRAGGING FORM 0 TO 1
-                    DesignActivity.setIngredientsOnPlatesIds(getPladeNumber(), (String) dropTarget.getTag().toString());
+                    DesignActivity.setIngredientsOnPlatesIds(getPladeNumber(), dropTarget.getTag().toString());
 
                     //reset the tag on the old plate
                     currentIngredient.setTag(defaultPladeTag);
-                    //***DEBUG***
-                    cTag = currentIngredient.getTag();
-                    dTag = dropTarget.getTag();
-                    //***DEBUG***
 
                     //reset old plate
-                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(event.getClipDescription().getLabel().toString()), (String) currentIngredient.getTag().toString());
-                    Log.d("Clipdata for event", "" + event.getClipDescription().getLabel().toString());
+                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(otherPlateId), currentIngredient.getTag().toString());
                     break;
                 }
 
@@ -165,21 +152,12 @@ class DragListener implements View.OnDragListener
                 //dropTarget.setTag(dropped.getId());
                 dropTarget.setTag(currentIngredient.getTag());
 
-                //TODO find out witch plate is being used
-                DesignActivity.setIngredientsOnPlatesIds(pladeNumber, (String) dropTarget.getTag().toString());
-
-                //Log.i("","DRAG_DROP");
+                DesignActivity.setIngredientsOnPlatesIds(pladeNumber, dropTarget.getTag().toString());
 
                 break;
             case DragEvent.ACTION_DRAG_ENDED:
-
-                //Log.i("","DRAG_ENDED");
-
                 break;
             default:
-
-                //Log.i("","DRAG_default");
-
                 break;
         }
         return true;

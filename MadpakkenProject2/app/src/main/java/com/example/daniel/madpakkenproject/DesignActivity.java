@@ -24,11 +24,8 @@ public class DesignActivity extends AppCompatActivity {
     //stores the icon used to reset a plate when an ingredient is moved
     private static Drawable plateTemplate;
 
-    //stores the default plade tag
-    private static Object defaultPladeTag;
-
-    //hashtable to store all id's of ui elements
-    //public Dictionary uiIds;
+    //stores the default plate tag
+    private static Object defaultPlateTag;
 
     //store what ingredients is on the 4 plates
     private static String[] ingredientsOnPlatesTags;
@@ -73,21 +70,9 @@ public class DesignActivity extends AppCompatActivity {
         ingredientChoice04.setOnTouchListener(new TouchListener("3"));
 
         //used to remove ingredients from the plates
-        removeIngredient.setOnDragListener(new DragListener(this, 4));
+        removeIngredient.setOnDragListener(new DragListener(this));
 
-        //setup icon id's
-        /*uiIds = new Hashtable();
-        uiIds.put("BaconID", ingredient_bacon.getId());
-        uiIds.put("CheeseID", ingredient_cheese.getId());
-        uiIds.put("EggID", ingredient_egg.getId());
-        uiIds.put("SaladID", ingredient_salad.getId());
-        uiIds.put("TomatoID", ingredient_tomato.getId());
-        uiIds.put("plate01ID", ingredientChoice01.getId());
-        uiIds.put("plate02ID", ingredientChoice02.getId());
-        uiIds.put("plate03ID", ingredientChoice03.getId());
-        uiIds.put("plate04ID", ingredientChoice04.getId());*/
-
-        //setup tags on XML drawable tags
+        //setup tags on XML drawables
         Object baconTag = getString(R.string.ingredient_bacon);
         Object eggTag = getString(R.string.ingredient_friedegg);
         Object saladTag = getString(R.string.ingredient_salad);
@@ -104,6 +89,7 @@ public class DesignActivity extends AppCompatActivity {
         ingredientChoice03.setTag(plateTag);
         ingredientChoice04.setTag(plateTag);
 
+        //stores the current ingredients on any given plate
         ingredientsOnPlatesTags = new String[4];
         ingredientsOnPlatesTags[0] = ingredientChoice01.getTag().toString();
         ingredientsOnPlatesTags[1] = ingredientChoice02.getTag().toString();
@@ -114,7 +100,7 @@ public class DesignActivity extends AppCompatActivity {
         plateTemplate  =  ingredientChoice01.getDrawable();
 
         //get reset tag from strings.xml
-        defaultPladeTag = getString(R.string.no_ingredient);
+        defaultPlateTag = getString(R.string.no_ingredient);
 
         //test/debug
         button = (Button) findViewById(R.id.button);
@@ -170,9 +156,9 @@ public class DesignActivity extends AppCompatActivity {
         return plateTemplate;
     }
 
-    public static Object getdefaultPladeTag()
+    public static Object getdefaultPlateTag()
     {
-        return defaultPladeTag;
+        return defaultPlateTag;
     }
 
     public String[] getIngredientsOnPlatesTags()
@@ -188,14 +174,12 @@ public class DesignActivity extends AppCompatActivity {
         else
         {
             ingredientsOnPlatesTags[index] = newTag;
-            //Log.d("New tag on ","" + index);
         }
     }
     //endregion
 
     public void onClick(View view)
     {
-        //infobox.setSingleLine(false);
         infobox.setText("");
         infobox.append("plateTag [0]: " + getIngredientsOnPlatesTags()[0]);
         infobox.append(System.getProperty("line.separator"));
