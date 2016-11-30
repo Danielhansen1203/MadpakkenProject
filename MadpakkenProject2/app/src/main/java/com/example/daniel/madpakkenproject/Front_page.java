@@ -9,10 +9,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Front_page extends AppCompatActivity {
 
+    TextView textView;
     Button menu;
     Button design;
     Button pay;
@@ -22,6 +24,9 @@ public class Front_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
+        textView = (TextView)findViewById(R.id.welcome_txt);
+        String message = getIntent().getStringExtra("message");
+        textView.setText(message);
 
        menu = (Button) findViewById(R.id.menu);
        design = (Button) findViewById(R.id.design);

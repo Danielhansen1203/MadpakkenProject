@@ -1,6 +1,7 @@
 package com.example.daniel.madpakkenproject;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -73,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    BackgroundTask backgroundTask = new BackgroundTask();
+                    BackgroundTask backgroundTask = new BackgroundTask(RegisterActivity.this);
                     backgroundTask.execute("register",Name.getText().toString(),LastName.getText().toString(),Email.getText().toString(),Pass.getText().toString());
                 }
             }
