@@ -5,11 +5,9 @@
  */
 package api;
 
-import java.awt.Menu;
 import java.sql.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "api", urlPatterns = {"/api"})
 public class api extends HttpServlet {
-    
-    private Statement stmt = null;
     
     public void doGet(HttpServletRequest request,
             HttpServletResponse response)
@@ -68,7 +64,7 @@ public class api extends HttpServlet {
          while(rs.next()){
             //Retrieve by column name
             int id  = rs.getInt("us_userID");
-            String name = rs.getString("us_userName");
+            String name = rs.getString("us_Name");
             String first = rs.getString("us_password");
             
 
@@ -104,32 +100,7 @@ public class api extends HttpServlet {
             se.printStackTrace();
          }//end finally try
       } //end try
-   
-    }
-    
-    public ArrayList<Menu> getMenus() 
-    {
-        ArrayList<Menu> menus = new ArrayList<Menu>();
-        
-        try
-        {
-           String sql = "SELECT * FROM Menu";
-           ResultSet rs = stmt.executeQuery(sql);
-           
-           //Extract data from result set
-           while(rs.next()){
-                String username = rs.getString("me_Name");
-                int price = rs.getInt("me_Price");
-                String desc = rs.getString("me_Description");
-        }
-           rs.close();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    return menus;
-    }
+   }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
