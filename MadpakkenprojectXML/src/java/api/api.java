@@ -5,6 +5,7 @@
  */
 package api;
 
+import Classes.DatabaseManager;
 import Classes.Menu;
 import com.thoughtworks.xstream.XStream;
 import java.sql.*;
