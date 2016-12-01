@@ -11,4 +11,15 @@ package Classes;
  */
 public class Order {
     
+    private int price;
+    
+    public int getPrice()
+    {
+        return price;
+    }
+        public void setPrice(int value)
+    {
+        price = value;
+    }
+    
 }

@@ -11,4 +11,33 @@ package Classes;
  */
 public class Child {
     
+    private String fName;
+    private String lName;
+    private String _class;
+    
+    public String getfName()
+    {
+        return fName;
+    }
+    public String getlName()
+    {
+        return lName;
+    }
+    public String get_Class()
+    {
+        return _class;
+    }
+    public void setfName(String f)
+    {
+        fName = f;
+    }
+        public void setlName(String e)
+    {
+         lName = e;
+    }
+    public void set_Class(String c)
+    {
+        _class = c;
+    }
+    
 }

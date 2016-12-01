@@ -5,10 +5,29 @@
  */
 package Classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mthy
  */
 public class ChildList {
+    
+    private ArrayList<Child> childList = null;
+    
+    public ChildList (ArrayList<Child> inputList)
+    {
+        this.childList = inputList;
+    }
+    
+    public void setChildList(ArrayList<Child> list)
+    {
+        this.childList = list;
+    }
+    
+    public ArrayList<Child> getChildList()
+    {
+        return this.childList;
+    }
     
 }

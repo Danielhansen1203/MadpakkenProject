@@ -84,4 +84,100 @@ public class DatabaseManager {
         }
         return menus;
     }
+    
+    public ArrayList<Child> getChilds() {
+        ArrayList<Child> childs = new ArrayList<Child>();
+
+        String JDBC_DRIVER="com.mysql.jdbc.Driver";
+        String DB_URL="jdbc:mysql://85.233.225.116/Madpakken";
+        
+        //  Database credentials
+       String USER = "root";
+       String PASS = "demo123";
+       
+       
+         
+       Connection conn = null;
+
+         // Execute SQL query
+         Statement stmt = null;
+         
+        
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+          stmt = conn.createStatement();
+            
+            String sql = "SELECT * FROM Child";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                Child c = new Child();
+                
+                String fName = rs.getString("ch_fName");
+                String lName = rs.getString("ch_lName");
+                String _class = rs.getString("ch_class");
+                
+                c.setfName(fName);
+                c.setlName(lName);
+                c.set_Class(_class);
+                childs.add(c);
+                
+                System.out.println("data menu");
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return childs;
+    }
+    
+    public ArrayList<Order> getOrders() {
+        ArrayList<Order> orders = new ArrayList<Order>();
+
+        String JDBC_DRIVER="com.mysql.jdbc.Driver";
+        String DB_URL="jdbc:mysql://85.233.225.116/Madpakken";
+        
+        //  Database credentials
+       String USER = "root";
+       String PASS = "demo123";
+       
+       
+         
+       Connection conn = null;
+
+         // Execute SQL query
+         Statement stmt = null;
+         
+        
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+          stmt = conn.createStatement();
+            
+            String sql = "SELECT * FROM `Order`";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                Order o = new Order();
+                
+                int price = rs.getInt("or_price");
+                
+                o.setPrice(price);
+                orders.add(o);
+                
+                System.out.println("data menu");
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+    
+    
 }

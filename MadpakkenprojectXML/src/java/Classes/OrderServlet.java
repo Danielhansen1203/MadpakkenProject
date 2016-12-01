@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package api;
+package Classes;
 
-import Classes.DatabaseManager;
-import Classes.Menu;
+import api.api;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,10 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Daniel
  */
-@WebServlet(name = "MenuServlet", urlPatterns = {"/MenuServlet"})
-public class MenuServlet extends HttpServlet {
-    
-    
+@WebServlet(name = "OrderServlet", urlPatterns = {"/OrderServlet"})
+public class OrderServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,10 +34,8 @@ public class MenuServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/xml;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            //print out xml
-            api a = new api();
-            out.println(a.toXmlMenu());
+           api a = new api();
+            out.println(a.toXmlOrder());
         }
     }
 

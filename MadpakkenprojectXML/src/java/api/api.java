@@ -5,8 +5,10 @@
  */
 package api;
 
+import Classes.Child;
 import Classes.DatabaseManager;
 import Classes.Menu;
+import Classes.Order;
 import com.thoughtworks.xstream.XStream;
 import java.sql.*;
 import java.io.IOException;
@@ -107,7 +109,8 @@ public class api extends HttpServlet {
    }
     
     //XML stuff
-    public String toXml()
+    
+    public String toXmlMenu()
     {
 
         //create new XStream
@@ -118,22 +121,67 @@ public class api extends HttpServlet {
         //used to store the returned data
         ArrayList<Menu> menuList = new ArrayList<Menu>();
         
-        String s = "";
         String xml = "";
         
         //grap xml resualts and add them to our list
             for (Menu m : DatabaseManager.getInstance().getMenus()) 
-            {
-                s += m.getName();
-                s += m.getDesc();
-                s += m.getPrice();
-                
+            {             
                 //add current menu to the list
                 menuList.add(m);
             }
     
        //transform into xml
        xml = xstream.toXML(menuList);
+       return xml;
+    }
+    
+    public String toXmlChild()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("child", Child.class); 
+        
+        //used to store the returned data
+        ArrayList<Child> childList = new ArrayList<Child>();
+        
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (Child c : DatabaseManager.getInstance().getChilds()) 
+            {            
+                //add current menu to the list
+                childList.add(c);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(childList);
+       return xml;
+    }
+    
+    public String toXmlOrder()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("Order", Order.class); 
+        
+        //used to store the returned data
+        ArrayList<Order> orderList = new ArrayList<Order>();
+        
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (Order o : DatabaseManager.getInstance().getOrders()) 
+            {            
+                //add current menu to the list
+                orderList.add(o);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(orderList);
        return xml;
     }
 

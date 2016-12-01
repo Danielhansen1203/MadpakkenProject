@@ -5,10 +5,29 @@
  */
 package Classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mthy
  */
 public class OrderList {
+    
+    private ArrayList<Order> orderList = null;
+    
+    public OrderList (ArrayList<Order> inputList)
+    {
+        this.orderList = inputList;
+    }
+    
+    public void setOrderList(ArrayList<Order> list)
+    {
+        this.orderList = list;
+    }
+    
+    public ArrayList<Order> getChildList()
+    {
+        return this.orderList;
+    }
     
 }
