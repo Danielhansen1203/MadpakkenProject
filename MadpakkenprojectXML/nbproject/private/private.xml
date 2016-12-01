@@ -2,15 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/ChildServlet.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/OrderProductsList.java</file>
             <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/Menu.java</file>
             <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/api/api.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/api/MenuServlet.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/MenuList.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/OrderProducts.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/MenuServlet.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/DatabaseManager.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/OrderProductsServlet.java</file>
         </group>
-=======
-        <group/>
->>>>>>> origin/master
     </open-files>
 </project-private>

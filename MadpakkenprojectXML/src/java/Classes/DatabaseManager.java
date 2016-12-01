@@ -179,5 +179,52 @@ public class DatabaseManager {
         return orders;
     }
     
-    
+    /*public ArrayList<OrderProducts> getOrderProducts() {
+        ArrayList<OrderProducts> orderProducts = new ArrayList<OrderProducts>();
+
+        String JDBC_DRIVER="com.mysql.jdbc.Driver";
+        String DB_URL="jdbc:mysql://85.233.225.116/Madpakken";
+        
+        //  Database credentials
+       String USER = "root";
+       String PASS = "demo123";
+       
+       
+         
+       Connection conn = null;
+
+         // Execute SQL query
+         Statement stmt = null;
+         
+        
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+          stmt = conn.createStatement();
+            
+            String sql = "SELECT * FROM `order_products`";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            //Extract data from result set
+            while (rs.next()) {
+                OrderProducts op = new OrderProducts();
+                
+                int number = rs.getInt("op_number");
+                int totalPrice = rs.getInt("op_totalPrice");
+                
+                
+                op.setNumber(number);
+                op.setTotalPrice(totalPrice);
+                orderProducts.add(op);
+                
+                System.out.println("data menu");
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orderProducts;
+    }
+    */
 }

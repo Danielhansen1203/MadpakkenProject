@@ -9,6 +9,7 @@ import Classes.Child;
 import Classes.DatabaseManager;
 import Classes.Menu;
 import Classes.Order;
+import Classes.OrderProducts;
 import com.thoughtworks.xstream.XStream;
 import java.sql.*;
 import java.io.IOException;
@@ -184,6 +185,31 @@ public class api extends HttpServlet {
        xml = xstream.toXML(orderList);
        return xml;
     }
+    
+    /*public String toXmlOrderProducts()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("OrderProducts", OrderProducts.class); 
+        
+        //used to store the returned data
+        ArrayList<OrderProducts> orderProductsList = new ArrayList<OrderProducts>();
+        
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (OrderProducts op : DatabaseManager.getInstance().getOrderProducts()) 
+            {            
+                //add current menu to the list
+                orderProductsList.add(op);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(orderProductsList);
+       return xml;
+    }*/
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
