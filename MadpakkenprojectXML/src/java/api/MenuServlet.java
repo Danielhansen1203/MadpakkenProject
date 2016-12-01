@@ -5,6 +5,7 @@
  */
 package api;
 
+import Classes.DatabaseManager;
 import Classes.Menu;
 import java.io.IOException;
 import java.io.PrintWriter;
