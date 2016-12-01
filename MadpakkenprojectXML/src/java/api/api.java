@@ -5,9 +5,12 @@
  */
 package api;
 
+import Classes.Menu;
+import com.thoughtworks.xstream.XStream;
 import java.sql.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -101,6 +104,37 @@ public class api extends HttpServlet {
          }//end finally try
       } //end try
    }
+    
+    //XML stuff
+    public String toXml()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("menu", Menu.class); 
+        
+        //used to store the returned data
+        ArrayList<Menu> menuList = new ArrayList<Menu>();
+        
+        String s = "";
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (Menu m : DatabaseManager.getInstance().getMenus()) 
+            {
+                s += m.getName();
+                s += m.getDesc();
+                s += m.getPrice();
+                
+                //add current menu to the list
+                menuList.add(m);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(menuList);
+       return xml;
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

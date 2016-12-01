@@ -65,12 +65,15 @@ public class DatabaseManager {
 
             //Extract data from result set
             while (rs.next()) {
+                Menu m = new Menu();
                 
                 String name = rs.getString("me_Name");
                 int price = rs.getInt("me_Price");
                 String desc = rs.getString("me_Description");
                 
-                Menu m = new Menu();
+                m.setName(name);
+                m.setDesc(desc);
+                m.setPrice(price);
                 menus.add(m);
                 
                 System.out.println("data menu");
