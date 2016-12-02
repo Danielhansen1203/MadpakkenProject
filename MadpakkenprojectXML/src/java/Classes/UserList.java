@@ -5,10 +5,29 @@
  */
 package Classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mthy
  */
 public class UserList {
+    
+    private ArrayList<User> userList = null;
+    
+    public UserList (ArrayList<User> inputList)
+    {
+        this.userList = inputList;
+    }
+    
+    public void setUserList(ArrayList<User> list)
+    {
+        this.userList = list;
+    }
+    
+    public ArrayList<User> getUserList()
+    {
+        return this.userList;
+    }
     
 }

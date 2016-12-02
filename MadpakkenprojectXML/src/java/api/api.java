@@ -10,6 +10,9 @@ import Classes.DatabaseManager;
 import Classes.Menu;
 import Classes.Order;
 import Classes.OrderProducts;
+import Classes.Product;
+import Classes.School;
+import Classes.User;
 import com.thoughtworks.xstream.XStream;
 import java.sql.*;
 import java.io.IOException;
@@ -186,7 +189,7 @@ public class api extends HttpServlet {
        return xml;
     }
     
-    /*public String toXmlOrderProducts()
+    public String toXmlOrderProducts()
     {
 
         //create new XStream
@@ -209,7 +212,82 @@ public class api extends HttpServlet {
        //transform into xml
        xml = xstream.toXML(orderProductsList);
        return xml;
-    }*/
+    }
+    
+    public String toXmlProduct()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("Product", Product.class); 
+        
+        //used to store the returned data
+        ArrayList<Product> productList = new ArrayList<Product>();
+        
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (Product op : DatabaseManager.getInstance().getProduct()) 
+            {            
+                //add current menu to the list
+                productList.add(op);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(productList);
+       return xml;
+    }
+    
+    public String toXmlSchool()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("School", School.class); 
+        
+        //used to store the returned data
+        ArrayList<School> schoolList = new ArrayList<School>();
+        
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (School s : DatabaseManager.getInstance().getSchool()) 
+            {            
+                //add current menu to the list
+                schoolList.add(s);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(schoolList);
+       return xml;
+    }
+    
+    public String toXmlUser()
+    {
+
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("User", User.class); 
+        
+        //used to store the returned data
+        ArrayList<User> userList = new ArrayList<User>();
+        
+        String xml = "";
+        
+        //grap xml resualts and add them to our list
+            for (User u : DatabaseManager.getInstance().getUser()) 
+            {            
+                //add current menu to the list
+                userList.add(u);
+            }
+    
+       //transform into xml
+       xml = xstream.toXML(userList);
+       return xml;
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

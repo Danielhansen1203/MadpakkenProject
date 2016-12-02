@@ -10,5 +10,32 @@ package Classes;
  * @author mthy
  */
 public class Product {
+     private String name;
+    private int price;
+    private int stock;
     
+    public String getName()
+    {
+        return name;
+    }
+    public int getPrice()
+    {
+        return price;
+    }
+    public int getStock()
+    {
+        return stock;
+    }
+    public void setName(String n)
+    {
+        name = n;
+    }
+        public void setPrice(int value)
+    {
+        price = value;
+    }
+    public void setStock(int s)
+    {
+        stock = s;
+    }
 }

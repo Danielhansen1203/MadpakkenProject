@@ -11,4 +11,32 @@ package Classes;
  */
 public class School {
     
+    private String name;
+    private String city;
+    private String zip;
+    
+    public String getName()
+    {
+        return name;
+    }
+    public String getCity()
+    {
+        return city;
+    }
+    public String getZip()
+    {
+        return zip;
+    }
+    public void setName(String n)
+    {
+        name = n;
+    }
+        public void setCity(String c)
+    {
+        city = c;
+    }
+    public void setZip(String z)
+    {
+        zip = z;
+    }
 }

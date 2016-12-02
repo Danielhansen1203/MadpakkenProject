@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Daniel
  */
-@WebServlet(name = "OrderProductsServlet", urlPatterns = {"/OrderProductsServlet"})
-public class OrderProductsServlet extends HttpServlet {
+@WebServlet(name = "SchoolServlet", urlPatterns = {"/SchoolServlet"})
+public class SchoolServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +36,7 @@ public class OrderProductsServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             api a = new api();
-            out.println(a.toXmlOrderProducts());
+           out.println(a.toXmlSchool());
         }
     }
 

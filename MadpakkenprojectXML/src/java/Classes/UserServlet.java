@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Daniel
  */
-@WebServlet(name = "OrderProductsServlet", urlPatterns = {"/OrderProductsServlet"})
-public class OrderProductsServlet extends HttpServlet {
+@WebServlet(name = "UserServlet", urlPatterns = {"/UserServlet"})
+public class UserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +34,9 @@ public class OrderProductsServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/xml;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+
             api a = new api();
-            out.println(a.toXmlOrderProducts());
+           out.println(a.toXmlUser());            
         }
     }
 
