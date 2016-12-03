@@ -8,6 +8,8 @@ package Classes;
 import Classes.DatabaseManager;
 import Classes.Menu;
 import api.api;
+import com.thoughtworks.xstream.XStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,6 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -41,8 +45,56 @@ public class MenuServlet extends HttpServlet {
             //print out xml
             api a = new api();
             out.println(a.toXmlMenu());
+            
+            //xmlToFile();
         }
     }
+    
+    void xmlToFile()
+    {
+        Menu m = new Menu();
+        m.setDesc("Test");
+        m.setName("Menu 01");
+        m.setPrice(60);
+        
+        FileOutputStream fos = null;
+        File f; 
+        String xmlFile = "Empty";
+        
+        try 
+        {
+            f = new File("C:/Menu.xml");
+            fos = new FileOutputStream(f);
+            
+            if (!f.exists()) 
+            {
+                f.createNewFile();
+            }
+            
+            //create new XStream
+            XStream xstream = new XStream();
+            //set custom tag name
+            xstream.alias("menu", Menu.class);
+            
+            ArrayList<Menu> am = new ArrayList<>();
+            am.add(m);
+            
+            xmlFile = xstream.toXML(am);
+            
+            byte[] br = xmlFile.getBytes();
+            
+            fos.write(br);
+            fos.flush();
+            fos.close();
+        } 
+        catch (Exception e) 
+        {
+
+        }
+        
+        
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
