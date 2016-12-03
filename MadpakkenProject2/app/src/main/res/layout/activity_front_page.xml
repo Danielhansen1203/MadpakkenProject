@@ -76,6 +76,17 @@
         android:layout_alignLeft="@+id/menu"
         android:layout_alignStart="@+id/menu" />
 
+        <Button
+            android:background="@drawable/button_selecter"
+            android:text="XML TEST"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/xml"
+            android:layout_above="@+id/design"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="76dp" />
+
 
     </RelativeLayout>
 

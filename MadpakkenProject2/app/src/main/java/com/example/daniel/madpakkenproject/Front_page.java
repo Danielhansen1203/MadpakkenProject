@@ -18,6 +18,7 @@ public class Front_page extends AppCompatActivity {
     Button menu;
     Button design;
     Button pay;
+    Button xml;
 
     //The buttons is assigned to go to different pages
     @Override
@@ -31,6 +32,7 @@ public class Front_page extends AppCompatActivity {
        menu = (Button) findViewById(R.id.menu);
        design = (Button) findViewById(R.id.design);
        pay =  (Button) findViewById(R.id.pay);
+        xml = (Button) findViewById(R.id.xml);
 
        menu.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -52,6 +54,16 @@ public class Front_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Front_page.this, PayActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        xml.setOnClickListener(new View.OnClickListener()
+        {
+                @Override
+                public void onClick(View v)
+            {
+                Intent intent = new Intent(Front_page.this, ReadXMLActivity.class);
                 startActivity(intent);
             }
         });
