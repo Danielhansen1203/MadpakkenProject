@@ -30,4 +30,5 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     compile 'com.paypal.sdk:paypal-android-sdk:2.14.2'
     compile 'com.thoughtworks.xstream:xstream:1.4.7'
+    compile 'com.android.volley:volley:1.0.0'
 }

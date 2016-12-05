@@ -7,36 +7,36 @@ package Classes;
 
 /**
  *
- * @author Daniel
+ * @author mthy
  */
-public class Menu 
-{
+public class School {
+    
     private String name;
-    private int price;
-    private String desc;
+    private String city;
+    private String zip;
     
     public String getName()
     {
         return name;
     }
-    public int getPrice()
+    public String getCity()
     {
-        return price;
+        return city;
     }
-    public String getDesc()
+    public String getZip()
     {
-        return desc;
+        return zip;
     }
     public void setName(String n)
     {
         name = n;
     }
-        public void setPrice(int value)
+        public void setCity(String c)
     {
-        price = value;
+        city = c;
     }
-    public void setDesc(String d)
+    public void setZip(String z)
     {
-        desc = d;
+        zip = z;
     }
 }

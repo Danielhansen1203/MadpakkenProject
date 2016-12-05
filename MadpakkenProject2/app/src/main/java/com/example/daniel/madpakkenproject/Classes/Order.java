@@ -7,36 +7,19 @@ package Classes;
 
 /**
  *
- * @author Daniel
+ * @author mthy
  */
-public class Menu 
-{
-    private String name;
-    private int price;
-    private String desc;
+public class Order {
     
-    public String getName()
-    {
-        return name;
-    }
+    private int price;
+    
     public int getPrice()
     {
         return price;
-    }
-    public String getDesc()
-    {
-        return desc;
-    }
-    public void setName(String n)
-    {
-        name = n;
     }
         public void setPrice(int value)
     {
         price = value;
     }
-    public void setDesc(String d)
-    {
-        desc = d;
-    }
+    
 }

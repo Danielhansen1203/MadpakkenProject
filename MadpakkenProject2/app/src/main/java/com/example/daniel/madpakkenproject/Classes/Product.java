@@ -7,13 +7,12 @@ package Classes;
 
 /**
  *
- * @author Daniel
+ * @author mthy
  */
-public class Menu 
-{
-    private String name;
+public class Product {
+     private String name;
     private int price;
-    private String desc;
+    private int stock;
     
     public String getName()
     {
@@ -23,9 +22,9 @@ public class Menu
     {
         return price;
     }
-    public String getDesc()
+    public int getStock()
     {
-        return desc;
+        return stock;
     }
     public void setName(String n)
     {
@@ -35,8 +34,8 @@ public class Menu
     {
         price = value;
     }
-    public void setDesc(String d)
+    public void setStock(int s)
     {
-        desc = d;
+        stock = s;
     }
 }
