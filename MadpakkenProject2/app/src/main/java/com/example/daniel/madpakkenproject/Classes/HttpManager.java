@@ -21,9 +21,7 @@ public class HttpManager  {
     StringRequest stringRequest;
     String url ="85.233.225.116:8080/MadpakkenprojectXML";
 
-
-
-public HttpManager() {
+public String getConnection(String url) {
 
     StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
             new Response.Listener<String>() {
@@ -37,15 +35,17 @@ public HttpManager() {
             }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            mTextView.setText("That didn't work!");
+
         }
     });
+    return
+}
+
+public HttpManager() {
+}
+
 // Add the request to the RequestQueue.
     requestQueue.add(stringRequest);
     requestQueue.start();
-
-}
-
-
 
 }
