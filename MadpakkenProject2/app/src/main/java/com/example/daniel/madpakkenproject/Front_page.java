@@ -1,8 +1,8 @@
 package com.example.daniel.madpakkenproject;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Front_page extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class Front_page extends AppCompatActivity {
     Button menu;
     Button design;
     Button pay;
-   // Button xml;
+    Button xml;
 
     //The buttons is assigned to go to different pages
     @Override
@@ -32,7 +31,7 @@ public class Front_page extends AppCompatActivity {
        menu = (Button) findViewById(R.id.menu);
        design = (Button) findViewById(R.id.design);
        pay =  (Button) findViewById(R.id.pay);
-       // xml = (Button) findViewById(R.id.xml);
+        xml = (Button) findViewById(R.id.xml);
 
        menu.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -58,7 +57,7 @@ public class Front_page extends AppCompatActivity {
             }
         });
 
-        /*xml.setOnClickListener(new View.OnClickListener()
+        xml.setOnClickListener(new View.OnClickListener()
         {
                 @Override
                 public void onClick(View v)
@@ -66,7 +65,7 @@ public class Front_page extends AppCompatActivity {
                 Intent intent = new Intent(Front_page.this, ReadXMLActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
