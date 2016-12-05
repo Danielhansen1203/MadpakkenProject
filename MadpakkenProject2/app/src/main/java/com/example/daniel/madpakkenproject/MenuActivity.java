@@ -18,32 +18,32 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.daniel.madpakkenproject.Classes.MenuChangedListener;
+import com.example.daniel.madpakkenproject.Classes.MenuConverter;
+
 import org.w3c.dom.Text;
 
-public class MenuActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MenuActivity extends AppCompatActivity implements MenuChangedListener{
+
+ Controller ct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+         ct = (Controller) getApplicationContext();
         final LinearLayout layout = (LinearLayout) findViewById(R.id.linearmain);
         final Button btn = (Button)findViewById(R.id.second);
+        MenuConverter mc = new MenuConverter(this);
+        mc.addListener(this);
 
-        final Controller ct = (Controller) getApplicationContext();
 
         ModelProducts products = null;
 
 //Creating an array of products
-        for(int i=ct.getProductArraylistsize()+1; i<=7;i++){
 
-            int Price =15+i;
-
-            products = new ModelProducts("Menu " +i, "Description"+i, Price);
-
-            ct.setProducts(products);
-
-        }
 
         int productsize = ct.getProductArraylistsize();
 
@@ -124,6 +124,7 @@ public class MenuActivity extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
+        mc.doProces();
     }
 
     //Creating the menu in the right corner
@@ -154,5 +155,20 @@ public class MenuActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onMenuChanged(List<com.example.daniel.madpakkenproject.Classes.Menu> menus) {
+        Log.d("MenuA", "onMenuChanged");
+
+        for(int i=0; i<menus.size();i++){
+
+            int Price =15+i;
+
+           ModelProducts products = new ModelProducts("Menu " +menus.get(i).getName(), "Description"+i, Price);
+
+            ct.setProducts(products);
+
+        }
     }
 }

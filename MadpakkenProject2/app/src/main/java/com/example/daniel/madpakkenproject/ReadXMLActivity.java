@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.daniel.madpakkenproject.Classes.HttpManager;
 import com.example.daniel.madpakkenproject.Classes.Menu;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
@@ -21,7 +22,7 @@ public class ReadXMLActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_xml);
-
+        HttpManager ht = new HttpManager(this);
         tv = (TextView) findViewById(R.id.xmlTextView);
         tv.setText("");
 
@@ -34,8 +35,6 @@ public class ReadXMLActivity extends AppCompatActivity {
         XStream xstream = new XStream();
         //set custom tag name
         xstream.alias("menu", Menu.class);
-
-        Object o;
 
         ArrayList<Menu> a = new ArrayList<>();
 
