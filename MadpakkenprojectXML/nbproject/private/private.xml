@@ -3,16 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/ChildServlet.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/OrderProductsList.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/Menu.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/UserList.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/UserServlet.java</file>
             <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/api/api.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/MenuList.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/OrderProducts.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/MenuServlet.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/User.java</file>
+            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/SchoolServlet.java</file>
             <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/DatabaseManager.java</file>
-            <file>file:/C:/Users/Tobias/Documents/GitHub/MadpakkenProject/MadpakkenprojectXML/src/java/Classes/OrderProductsServlet.java</file>
         </group>
     </open-files>
 </project-private>
