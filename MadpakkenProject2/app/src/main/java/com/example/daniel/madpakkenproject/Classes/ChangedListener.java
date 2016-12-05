@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Daniel on 05-12-2016.
  */
 
-public interface MenuChangedListener {
+public interface ChangedListener {
 
 
     public void onMenuChanged(List<Menu> menus);

@@ -63,52 +63,8 @@ public class HttpManager {
     }
 
 
-    /*  public List<Menu> getMenus() {
-
-          getConnection(url + "/MenuServlet");
-          //create new XStream
-          XStream xstream = new XStream();
-          //set custom tag name
-          xstream.alias("menu", Menu.class);
-
-          //used to store the returned data
-          ArrayList<Menu> menuList = new ArrayList<Menu>();
-
-          //grap xml resualts and add them to our list
-
-
-          //transform into xml
-          try
-          {
-             // menuList = (ArrayList) xstream.fromXML(menuList);
-              //tv.setText(a.get(0).getName());
-              //Log.d("XML", "" + a.get(0).toString());
-          }
-          catch (IOException ioe)
-          {
-              Log.e("ERROR", "" + ioe.toString());
-          }
-          catch (ClassCastException cce)
-          {
-              Log.e("ERROR", "" + cce.toString());
-          }
-          catch (StreamException se)
-          {
-              Log.e("ERROR", "" + se.toString());
-          }
-          catch(Exception e)
-          {
-              Log.e("ERROR", "" + e.toString());
-          }
-      }
-
-
-      }
-  */
     public HttpManager(Activity a) {
         requestQueue = Volley.newRequestQueue(a);
-   //     getConnection(url + "/MenuServlet");
-
     }
 
 // Add the request to the RequestQueue.

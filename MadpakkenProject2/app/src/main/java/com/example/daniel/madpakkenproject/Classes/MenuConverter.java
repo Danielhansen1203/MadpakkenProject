@@ -17,10 +17,10 @@ import java.util.List;
 
 public class MenuConverter implements ResponseRecieved {
 
-    List<MenuChangedListener> listeners = new ArrayList<>();
+    List<ChangedListener> listeners = new ArrayList<>();
     HttpManager http;
 
-    public void addListener(MenuChangedListener ml) {
+    public void addListener(ChangedListener ml) {
         listeners.add(ml);
     }
 
@@ -57,7 +57,7 @@ public class MenuConverter implements ResponseRecieved {
             Log.d("XML", "try " + menuList.get(0).getName() + " " + menuList.get(0).getDesc() + " " + menuList.get(0).getPrice());
 
             //!
-            for(MenuChangedListener ml :listeners){
+            for(ChangedListener ml :listeners){
                 Log.d("MenuC","onMenuChanged");
                 ml.onMenuChanged(menuList);
             }
