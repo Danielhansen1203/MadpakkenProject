@@ -6,7 +6,6 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.daniel.madpakkenproject.Classes.Menu;
-import com.example.daniel.madpakkenproject.Classes.MenuList;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
 
@@ -38,13 +37,14 @@ public class ReadXMLActivity extends AppCompatActivity {
 
         Object o;
 
-        ArrayList<MenuList> a = new ArrayList<>();
+        ArrayList<Menu> a = new ArrayList<>();
+
+        Log.d("TRYING","");
 
         try
         {
-            o = xstream.fromXML(getResources().getAssets().open("XML/MenuTest.xml"));
-            a.add((MenuList) xstream.fromXML(getResources().getAssets().open("XML/MenuTest.xml")));
-            tv.setText(a.get(0).toString());
+            a = (ArrayList) xstream.fromXML(getResources().getAssets().open("XML/MenuTest.xml"));
+            tv.setText(a.get(0).getName());
             Log.d("XML", "" + a.get(0).toString());
         }
         catch (IOException ioe)
