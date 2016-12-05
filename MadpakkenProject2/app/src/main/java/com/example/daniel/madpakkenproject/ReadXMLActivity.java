@@ -1,16 +1,16 @@
 package com.example.daniel.madpakkenproject;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.example.daniel.madpakkenproject.Classes.Menu;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
+import com.example.daniel.madpakkenproject.Classes.MenuList;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.StreamException;
 
-import java.io.InputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReadXMLActivity extends AppCompatActivity {
@@ -31,86 +31,37 @@ public class ReadXMLActivity extends AppCompatActivity {
 
     void readXML()
     {
-        XmlPullParserFactory pullParserFactory;
+        //create new XStream
+        XStream xstream = new XStream();
+        //set custom tag name
+        xstream.alias("menu", Menu.class);
 
-        Log.d("try xml","");
+        Object o;
+
+        ArrayList<MenuList> a = new ArrayList<>();
 
         try
         {
-            pullParserFactory = XmlPullParserFactory.newInstance();
-            XmlPullParser parser = pullParserFactory.newPullParser();
-
-            InputStream in_s = getApplicationContext().getAssets().open("XML/MenuTest.xml");
-            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            parser.setInput(in_s, null);
-
-            ArrayList<Menu> menus = null;
-            int eventType = parser.getEventType();
-            Menu m = null;
-
-            Log.d("read xml","" + parser.getEventType());
-
-            while (eventType != XmlPullParser.END_DOCUMENT)
-            {
-                String name = null;
-
-                switch (eventType)
-                {
-                    case XmlPullParser.START_DOCUMENT:
-                        menus = new ArrayList<>();
-                        Log.d("START_DOCUMENT","");
-                        break;
-                    case XmlPullParser.START_TAG:
-                        name = parser.getName();
-                        Log.d("START_TAG","");
-                        if (name == "list")
-                        {
-                            Log.d("list","");
-                            m = new Menu();
-                        }
-                        else if (name != null)
-                        {
-                            if (name == "menu")
-                            {
-                                Log.d("menu","");
-                                //break;
-                            }
-                            if (name == "name")
-                            {
-                                Log.d("name","");
-                                m.setName(parser.nextText());
-                            }
-                            if (name == "Price")
-                            {
-                                Log.d("price","");
-                                m.setPrice(parser.next());
-                            }
-                            if(name == "desc")
-                            {
-                                Log.d("desc","");
-                                m.setDesc(parser.nextText());
-                            }
-                        }
-                        break;
-                    case XmlPullParser.END_TAG:
-                        Log.d("END_TAG","");
-                        name = parser.getName();
-                        if(name.equalsIgnoreCase("list") && m != null)
-                        {
-                            menus.add(m);
-                        }
-                }
-                eventType = parser.next();
-            }
-            tv.append(PrintXml(menus));
+            o = xstream.fromXML(getResources().getAssets().open("XML/MenuTest.xml"));
+            a.add((MenuList) xstream.fromXML(getResources().getAssets().open("XML/MenuTest.xml")));
+            tv.setText(a.get(0).toString());
+            Log.d("XML", "" + a.get(0).toString());
         }
-        catch (XmlPullParserException xe)
+        catch (IOException ioe)
         {
-            xe.printStackTrace();
+            Log.e("ERROR", "" + ioe.toString());
         }
-        catch (Exception e)
+        catch (ClassCastException cce)
         {
-            e.printStackTrace();
+            Log.e("ERROR", "" + cce.toString());
+        }
+        catch (StreamException se)
+        {
+            Log.e("ERROR", "" + se.toString());
+        }
+        catch(Exception e)
+        {
+            Log.e("ERROR", "" + e.toString());
         }
     }
 
@@ -126,6 +77,7 @@ public class ReadXMLActivity extends AppCompatActivity {
             newMenu += input.get(i).getName() + "/n";
             newMenu += input.get(i).getDesc() + "/n";
             newMenu += input.get(i).getPrice() + "/n";
+            newMenu += input.size();
         }
 
         return newMenu;
