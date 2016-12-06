@@ -23,13 +23,14 @@ import java.util.List;
  */
 
 public class HttpManager {
-
+//Creates a list of listeners
     List<ResponseRecieved> listeners = new ArrayList<>();
 
     RequestQueue requestQueue;
     StringRequest stringRequest;
     String url = "http://85.233.225.116:8080/MadpakkenprojectXML";
 
+    // Makes connection to the server
     public void getConnection(String u) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url+u,
@@ -56,10 +57,10 @@ public class HttpManager {
 
     }
 
+    //This add the listeneres to the response it recives
     public void addListener(ResponseRecieved rr) {
 
         listeners.add(rr);
-        Log.d("HTTP add Listener", "ResponseRecieved");
     }
 
 

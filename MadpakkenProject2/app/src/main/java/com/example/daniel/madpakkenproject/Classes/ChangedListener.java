@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Daniel on 05-12-2016.
  */
-
+//The function that drives when there is an update
 public interface ChangedListener {
 
 
