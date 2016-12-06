@@ -1,10 +1,16 @@
 package com.example.daniel.madpakkenproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,12 +19,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static com.example.daniel.madpakkenproject.R.drawable.toast;
 
 public class DesignActivity extends AppCompatActivity {
 
     //debug
-    private Button button;
-    private TextView infobox;
+    /*private Button button;
+    private TextView infobox;*/
 
     //setup drop targets
     private static ImageView ingredientChoice01, ingredientChoice02, ingredientChoice03, ingredientChoice04,
@@ -39,6 +48,9 @@ public class DesignActivity extends AppCompatActivity {
 
     //store what ingredients is on the 4 plates
     private static String[] ingredientsOnPlatesTags;
+
+    //done button
+    private Button doneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -98,9 +110,9 @@ public class DesignActivity extends AppCompatActivity {
         Object saladTag = getString(R.string.ingredient_salad);
         Object cheeseTag = getString(R.string.ingredient_cheese);
         Object tomatoTag = getString(R.string.ingredient_tomato);
-        Object chickenTag = "chicken";
-        Object pepperTag = "pepper";
-        Object salamiTag = "salami";
+        Object chickenTag = getString(R.string.ingredient_chicken);
+        Object pepperTag = getString(R.string.ingredient_pepper);
+        Object salamiTag = getString(R.string.ingredient_salami);
         Object plateTag = getString(R.string.no_ingredient);
         ingredient_bacon.setTag(baconTag);
         ingredient_egg.setTag(eggTag);
@@ -130,11 +142,12 @@ public class DesignActivity extends AppCompatActivity {
 
         //set the bead selector
         breadType = (Spinner) findViewById(R.id.bread_type);
-        fixDropDownButton();
+
+        doneButton = (Button) findViewById(R.id.button_sandwitch_done);
 
         //test/debug
-        button = (Button) findViewById(R.id.buttonl);
-        infobox = (TextView) findViewById(R.id.info);
+        /*button = (Button) findViewById(R.id.buttonl);
+        infobox = (TextView) findViewById(R.id.info);*/
     }
 
     //region GETTERS
@@ -211,7 +224,8 @@ public class DesignActivity extends AppCompatActivity {
     }
     //endregion
 
-    public void onClick(View view)
+    //Test button
+    /*public void onClickTest(View view)
     {
         infobox.setText("");
         infobox.append("" + breadType.getSelectedItem().toString());
@@ -223,11 +237,116 @@ public class DesignActivity extends AppCompatActivity {
         infobox.append("plateTag [2]: " + getIngredientsOnPlatesTags()[2]);
         infobox.append(System.getProperty("line.separator"));
         infobox.append("plateTag [3]: " + getIngredientsOnPlatesTags()[3]);
+    }*/
+
+    //brings up a dialog asking the user if thier sandwich is alright
+    //provided that there is at least one ingredient on one of the plates
+    public void onClickDone(View view)
+    {
+        //check if all the plats are empty
+        //if they are then inform the user that they need at least one ingredient
+        if (!checkPlates())
+        {
+            Toast t = new Toast(DesignActivity.this);
+            t.makeText(DesignActivity.this, getString(R.string.sandwich_toast_msg), Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        //using TextViews allows for more control
+        TextView dialogMsg = new TextView(this);
+        TextView dialogTittle = new TextView(this);
+
+        dialogTittle.setTextColor(Color.BLACK);
+        dialogTittle.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        dialogTittle.setText(getString(R.string.sandwich_dialog_titel));
+        dialogTittle.setGravity(Gravity.CENTER);
+        dialogTittle.setTypeface(Typeface.DEFAULT_BOLD);
+
+        dialogMsg.setText
+                (
+                        getString(R.string.sandwich_dialog_msg) +
+                        System.getProperty("line.separator") +
+                        breadType.getSelectedItem().toString() +
+                        System.getProperty("line.separator") +
+                        buildSandwich() +
+                        breadType.getSelectedItem().toString()
+                );
+        dialogMsg.setGravity(Gravity.CENTER);
+        dialogMsg.setTypeface(Typeface.DEFAULT);
+        dialogMsg.setTextColor(Color.DKGRAY);
+
+        ad.setCustomTitle(dialogTittle);
+        ad.setView(dialogMsg);
+        ad.setCancelable(true);
+
+        ad.setPositiveButton(getString(R.string.sandwich_dialog_accept), new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                //TODO send the sandwich to the sandwich factory
+                //TODO and add it to the basket
+            }
+        });
+        ad.setNegativeButton(getString(R.string.sandwich_dialog_cancel), new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                //Canceled, no nothing
+            }
+        });
+
+        ad.show();
     }
 
-    private void fixDropDownButton()
+    //we don't wan't our user to order an empty sandwich
+    //so we run a check on each plate to see if there is something on it
+    //returns false if ALL plate are empty
+    //returns true if at least ONE plate is full
+    private boolean checkPlates()
     {
+        int count = 0;
+        for (int i = 0; i <= getIngredientsOnPlatesTags().length - 1; i++)
+        {
+            if (getIngredientsOnPlatesTags()[i] == getString(R.string.no_ingredient))
+            {
+               count++;
+            }
+        }
 
+        if (count < getIngredientsOnPlatesTags().length)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //we not wan't a bunch of 'plate' shown when asking the user
+    //if their sandwich is alright
+    private String buildSandwich ()
+    {
+        String sandwich = "";
+
+        for (int i = 0; i <= getIngredientsOnPlatesTags().length - 1; i++)
+        {
+            if (getIngredientsOnPlatesTags()[i] == getString(R.string.no_ingredient))
+            {
+                continue;
+            }
+            else
+            {
+                sandwich += getIngredientsOnPlatesTags()[i];
+                sandwich += System.getProperty("line.separator");
+            }
+        }
+
+        return sandwich;
     }
 
     //Creating the menu in the right corner

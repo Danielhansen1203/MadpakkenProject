@@ -24,10 +24,13 @@
     <!-- for use with sandwitch maker -->
     <string name="no_ingredient">plate</string>
     <string name="ingredient_bacon">bacon</string>
-    <string name="ingredient_cheese">cheese</string>
+    <string name="ingredient_cheese">ost</string>
     <string name="ingredient_friedegg">egg</string>
-    <string name="ingredient_salad">salad</string>
-    <string name="ingredient_tomato">tomato</string>
+    <string name="ingredient_salad">salat</string>
+    <string name="ingredient_tomato">tomat</string>
+    <string name="ingredient_chicken">kylling</string>
+    <string name="ingredient_pepper">pepper</string>
+    <string name="ingredient_salami">salami</string>
 
     <string-array name="bread_types">
         <item>Rugbrød</item>
@@ -37,4 +40,10 @@
         <item>Bolle</item>
         <item>Toasted Bolle</item>
     </string-array>
+
+    <string name="sandwich_dialog_titel">Bekræft sandwich</string>
+    <string name="sandwich_dialog_msg">Er du tilfreds med din sandwich?</string>
+    <string name="sandwich_dialog_cancel">Tilbage</string>
+    <string name="sandwich_dialog_accept">Ja, fortsæt til betaling</string>
+    <string name="sandwich_toast_msg">Du skal have mindst én ingrediens</string>
 </resources>

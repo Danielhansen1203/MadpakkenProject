@@ -147,11 +147,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignTop="@+id/imageView_ingredient_bacon" />
 
-    <Button
+    <!-- Testing -->
+    <!--Button
         android:text="Test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
+        android:onClick="onClickTest"
         android:id="@+id/button"
         android:layout_above="@+id/imageView_ingredient_bacon"
         android:layout_alignParentLeft="true"
@@ -167,7 +168,7 @@
         android:layout_toRightOf="@+id/button"
         android:layout_toEndOf="@+id/button"
         android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" />
+        android:layout_marginStart="15dp" /-->
 
 <!-- This is needed because having a dropdown menu with a background color
      AND a arrow button (that indicates it's a drop down menu) is beyond androids capabilities -->
@@ -190,5 +191,18 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
     </RelativeLayout>
+
+    <Button
+        android:text="Færdig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_sandwitch_done"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/imageView_ingredient_tomato"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickDone" />
 
 </RelativeLayout>
