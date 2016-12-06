@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.daniel.madpakkenproject.DesignActivity">
 
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -68,6 +69,39 @@
         android:id="@+id/imageView_ingredient_tomato" />
 
     <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/xml_chicken"
+        android:layout_alignTop="@+id/imageView_ingredient_egg"
+        android:layout_toRightOf="@+id/imageView_ingredient_egg"
+        android:layout_toEndOf="@+id/imageView_ingredient_egg"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:id="@+id/imageView_ingredient_chicken" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/xml_pepper"
+        android:layout_alignTop="@+id/imageView_ingredient_salad"
+        android:layout_toRightOf="@+id/imageView_ingredient_salad"
+        android:layout_toEndOf="@+id/imageView_ingredient_salad"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:id="@+id/imageView_ingredient_pepper" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/xml_salami"
+        android:layout_alignTop="@+id/imageView_ingredient_cheese"
+        android:layout_toRightOf="@+id/imageView_ingredient_cheese"
+        android:layout_toEndOf="@+id/imageView_ingredient_cheese"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:id="@+id/imageView_ingredient_salami" />
+
+    <ImageView
         app:srcCompat="@drawable/xml_plate"
         android:id="@+id/imageView_ingredient_target_04"
         android:layout_width="80dp"
@@ -113,25 +147,48 @@
         android:layout_alignParentBottom="true"
         android:layout_alignTop="@+id/imageView_ingredient_bacon" />
 
-    <TextView
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:id="@+id/info"
-        android:layout_below="@+id/button" />
-
     <Button
         android:text="Test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:id="@+id/button"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
+        android:layout_above="@+id/imageView_ingredient_bacon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp" />
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info"
+        android:layout_alignTop="@+id/button"
+        android:layout_toRightOf="@+id/button"
+        android:layout_toEndOf="@+id/button"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
+
+<!-- This is needed because having a dropdown menu with a background color
+     AND a arrow button (that indicates it's a drop down menu) is beyond androids capabilities -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@color/colorDropDown"
         android:layout_below="@+id/toolbar"
-         />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bread_type"
+            android:popupBackground="@color/colorDropDown"
+            android:padding="10dp"
+            android:entries="@array/bread_types"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
 </RelativeLayout>

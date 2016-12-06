@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class DesignActivity extends AppCompatActivity {
@@ -22,9 +23,13 @@ public class DesignActivity extends AppCompatActivity {
     //setup drop targets
     private static ImageView ingredientChoice01, ingredientChoice02, ingredientChoice03, ingredientChoice04,
     //setup ingredients
-    ingredient_bacon, ingredient_egg, ingredient_salad, ingredient_cheese, ingredient_tomato,
+    ingredient_bacon, ingredient_egg, ingredient_salad, ingredient_cheese, ingredient_tomato, ingredient_chicken,
+    ingredient_pepper, ingredient_salami,
     //other
     removeIngredient;
+
+    //Dropdown menu for selecting bread
+    private Spinner breadType;
 
     //stores the icon used to reset a plate when an ingredient is moved
     private static Drawable plateTemplate;
@@ -56,6 +61,9 @@ public class DesignActivity extends AppCompatActivity {
         ingredient_salad = (ImageView) findViewById(R.id.imageView_ingredient_salad);
         ingredient_cheese = (ImageView) findViewById(R.id.imageView_ingredient_cheese);
         ingredient_tomato = (ImageView) findViewById(R.id.imageView_ingredient_tomato);
+        ingredient_chicken = (ImageView) findViewById(R.id.imageView_ingredient_chicken);
+        ingredient_pepper = (ImageView) findViewById(R.id.imageView_ingredient_pepper);
+        ingredient_salami = (ImageView) findViewById(R.id.imageView_ingredient_salami);
 
         removeIngredient = (ImageView) findViewById(R.id.imageView_null);
 
@@ -65,6 +73,9 @@ public class DesignActivity extends AppCompatActivity {
         ingredient_salad.setOnTouchListener(new TouchListener());
         ingredient_cheese.setOnTouchListener(new TouchListener());
         ingredient_tomato.setOnTouchListener(new TouchListener());
+        ingredient_chicken.setOnTouchListener(new TouchListener());
+        ingredient_pepper.setOnTouchListener(new TouchListener());
+        ingredient_salami.setOnTouchListener(new TouchListener());
 
         //make drop targets accept drops
         ingredientChoice01.setOnDragListener(new DragListener(this, 0));
@@ -87,12 +98,18 @@ public class DesignActivity extends AppCompatActivity {
         Object saladTag = getString(R.string.ingredient_salad);
         Object cheeseTag = getString(R.string.ingredient_cheese);
         Object tomatoTag = getString(R.string.ingredient_tomato);
+        Object chickenTag = "chicken";
+        Object pepperTag = "pepper";
+        Object salamiTag = "salami";
         Object plateTag = getString(R.string.no_ingredient);
         ingredient_bacon.setTag(baconTag);
         ingredient_egg.setTag(eggTag);
         ingredient_salad.setTag(saladTag);
         ingredient_cheese.setTag(cheeseTag);
         ingredient_tomato.setTag(tomatoTag);
+        ingredient_chicken.setTag(chickenTag);
+        ingredient_pepper.setTag(pepperTag);
+        ingredient_salami.setTag(salamiTag);
         ingredientChoice01.setTag(plateTag);
         ingredientChoice02.setTag(plateTag);
         ingredientChoice03.setTag(plateTag);
@@ -110,6 +127,10 @@ public class DesignActivity extends AppCompatActivity {
 
         //get reset tag from strings.xml
         defaultPlateTag = getString(R.string.no_ingredient);
+
+        //set the bead selector
+        breadType = (Spinner) findViewById(R.id.bread_type);
+        fixDropDownButton();
 
         //test/debug
         button = (Button) findViewById(R.id.buttonl);
@@ -154,6 +175,9 @@ public class DesignActivity extends AppCompatActivity {
     {
         return ingredient_tomato;
     }
+    public static ImageView getIngredient_chicken(){return ingredient_chicken;}
+    public static ImageView getIngredient_pepper(){return ingredient_pepper;}
+    public static ImageView getIngredient_salami() {return ingredient_salami;}
 
     public static ImageView getRemoveIngredient()
     {
@@ -190,6 +214,8 @@ public class DesignActivity extends AppCompatActivity {
     public void onClick(View view)
     {
         infobox.setText("");
+        infobox.append("" + breadType.getSelectedItem().toString());
+        infobox.append(System.getProperty("line.separator"));
         infobox.append("plateTag [0]: " + getIngredientsOnPlatesTags()[0]);
         infobox.append(System.getProperty("line.separator"));
         infobox.append("plateTag [1]: " + getIngredientsOnPlatesTags()[1]);
@@ -197,6 +223,11 @@ public class DesignActivity extends AppCompatActivity {
         infobox.append("plateTag [2]: " + getIngredientsOnPlatesTags()[2]);
         infobox.append(System.getProperty("line.separator"));
         infobox.append("plateTag [3]: " + getIngredientsOnPlatesTags()[3]);
+    }
+
+    private void fixDropDownButton()
+    {
+
     }
 
     //Creating the menu in the right corner

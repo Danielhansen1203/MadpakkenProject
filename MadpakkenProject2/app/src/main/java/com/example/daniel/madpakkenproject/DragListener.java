@@ -68,6 +68,9 @@ class DragListener implements View.OnDragListener
                 ingredientIds.add(DesignActivity.getIngredient_egg().getId());
                 ingredientIds.add(DesignActivity.getIngredient_salad().getId());
                 ingredientIds.add(DesignActivity.getIngredient_tomato().getId());
+                ingredientIds.add(DesignActivity.getIngredient_chicken().getId());
+                ingredientIds.add(DesignActivity.getIngredient_pepper().getId());
+                ingredientIds.add(DesignActivity.getIngredient_salami().getId());
 
                 //get the tag of the drop target
                 Object defaultPladeTag = DesignActivity.getdefaultPlateTag();

@@ -28,4 +28,13 @@
     <string name="ingredient_friedegg">egg</string>
     <string name="ingredient_salad">salad</string>
     <string name="ingredient_tomato">tomato</string>
+
+    <string-array name="bread_types">
+        <item>Rugbrød</item>
+        <item>Toasted Rugbrød</item>
+        <item>Franskbrød</item>
+        <item>Toasted Franskbrød</item>
+        <item>Bolle</item>
+        <item>Toasted Bolle</item>
+    </string-array>
 </resources>
