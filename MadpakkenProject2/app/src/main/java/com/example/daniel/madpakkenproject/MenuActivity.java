@@ -26,7 +26,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 public class MenuActivity extends AppCompatActivity implements ChangedListener {
-//Controls the cart
+    //Controls the cart
     Controller ct;
 
     @Override
@@ -160,18 +160,20 @@ public class MenuActivity extends AppCompatActivity implements ChangedListener {
         }
         return super.onOptionsItemSelected(item);
     }
-//Adding the menus to the screen
+boolean activity = false;
+    //Adding the menus to the screen
     @Override
     public void onMenuChanged(List<com.example.daniel.madpakkenproject.Classes.Menu> menus) {
         ct.removeProducts();
-        for (int i = 0 ; i <= menus.size(); i++) {
+        if(activity == false){
+        for (int i = 0; i <=  menus.size(); i++) {
 
             ModelProducts products = new ModelProducts(menus.get(i).getName(), menus.get(i).getDesc(), menus.get(i).getPrice());
 
             ct.setProducts(products);
         }
-
-
         }
     }
+
+}
 

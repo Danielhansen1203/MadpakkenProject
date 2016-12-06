@@ -34,7 +34,8 @@ public class PayActivity extends AppCompatActivity {
     Intent m_service;
     int m_paypalRequestCode = 999;
     int getTotal = 0;
-
+    Controller ct;
+    LinearLayout showCartContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,9 @@ public class PayActivity extends AppCompatActivity {
         m_paynow = (TextView) findViewById(R.id.paynow);
 
         //The layout that will show what we got in the cart
-        final LinearLayout showCartContent = (LinearLayout) findViewById(R.id.showcart);
+        showCartContent = (LinearLayout) findViewById(R.id.showcart);
 
-        final Controller ct = (Controller)getApplicationContext();
+        ct = (Controller)getApplicationContext();
 
         final int CartSize = ct.getCart().getCartsize();
 
@@ -65,6 +66,8 @@ public class PayActivity extends AppCompatActivity {
 
                 final LinearLayout la = new LinearLayout(this);
 
+                //la = new LinearLayout(this);
+
                 la.setOrientation(LinearLayout.HORIZONTAL);
 
                 final Button btn1 = new Button(this);
@@ -81,12 +84,11 @@ public class PayActivity extends AppCompatActivity {
 
                 final int index = i;
 
+
                 //This will command what the "Remove" button will do
                 btn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.i("TAG", "Index:"+index);
-
                         ct.getCart().removeProducts(ct.getProducts(index));
                         la.removeAllViews();
                         getTotal -= pPrice;
@@ -98,13 +100,6 @@ public class PayActivity extends AppCompatActivity {
 
 
             }
-
-
-
-        }
-
-        else {
-
 
 
 
@@ -168,6 +163,9 @@ public class PayActivity extends AppCompatActivity {
                         m_response.setText("Betalingen er nu gennemført");
                         getTotal = 0;
                         m_paynow.setText("Betal i alt: "+getTotal+" Kr");
+                        ct.getCart().removeAllProducts(ct.getProducts(1));
+                        showCartContent.removeAllViews();
+
                     }
                     else
                         m_response.setText("Fejl i betalingen");
