@@ -1,5 +1,9 @@
 package com.example.daniel.madpakkenproject.Classes.Sandwich;
 
+import com.example.daniel.madpakkenproject.ModelProducts;
+
+import java.io.Serializable;
+
 enum E_breadType
 {
     rugbrod,
@@ -10,28 +14,31 @@ enum E_breadType
     toastedBolle,
 }
 
-public class Sandwich
+public class Sandwich extends ModelProducts implements Serializable
 {
 
     private int price = 10;
     private String name = "Lav selv sandwich";
+    private String breadType;
     private String ingredient01;
     private String ingredient02;
     private String ingredient03;
     private String ingredient04;
 
-    //default
+    //testing
     public Sandwich()
     {
-        this.breadType = E_breadType.rugbrod;
+        super("", "", 0);
+        this.breadType = E_breadType.rugbrod.toString();
         this.ingredient01 = "salad";
         this.ingredient02 = "bacon";
         this.ingredient03 = "pepper";
         this.ingredient04 = "tomato";
     }
 
-    public Sandwich(E_breadType breadType, String ingre1, String ingre2, String ingre3, String ingre4)
+    public Sandwich(String breadType, String ingre1, String ingre2, String ingre3, String ingre4)
     {
+        super(breadType, ingre1, 10);
         this.breadType = breadType;
         this.ingredient01 = ingre1;
         this.ingredient02 = ingre2;
@@ -39,17 +46,15 @@ public class Sandwich
         this.ingredient04 = ingre4;
     }
 
-    public E_breadType getBreadType()
+    public String getBreadType()
     {
         return breadType;
     }
 
-    public void setBreadType(E_breadType breadType)
+    public void setBreadType(String breadType)
     {
         this.breadType = breadType;
     }
-
-    private E_breadType breadType;
 
     public String getIngredient01()
     {
