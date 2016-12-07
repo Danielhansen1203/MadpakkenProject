@@ -12,6 +12,11 @@ public class SandwichFactory
         }
     }
 
+    public SandwichFactory getInstance()
+    {
+        return instance;
+    }
+
     public Sandwich createSandwich(E_breadType breadType, String ingredient01, String ingredient02, String ingredient03, String ingredient04)
     {
         Sandwich s = new Sandwich();
