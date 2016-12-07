@@ -1,11 +1,13 @@
 package com.example.daniel.madpakkenproject;
 
+import java.io.Serializable;
+
 /**
  * Created by Daniel on 28-11-2016.
  */
 
 //Creating products
-public class ModelProducts {
+public class ModelProducts implements Serializable {
     private String productName;
     private String productDesc;
     private int productPrice;

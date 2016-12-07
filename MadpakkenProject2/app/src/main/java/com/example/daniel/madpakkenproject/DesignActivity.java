@@ -21,7 +21,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.daniel.madpakkenproject.R.drawable.toast;
+import com.example.daniel.madpakkenproject.Classes.Sandwich.Sandwich;
+import com.example.daniel.madpakkenproject.Classes.Sandwich.SandwichFactory;
 
 public class DesignActivity extends AppCompatActivity {
 
@@ -286,8 +287,25 @@ public class DesignActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                //TODO send the sandwich to the sandwich factory
-                //TODO and add it to the basket
+                //create sandwich
+                Sandwich s;
+                Log.d("DA", "Breadtype " + breadType.getSelectedItem().toString());
+                s = SandwichFactory.getInstance().createSandwich
+                        (
+                                "Lav selv sandwich",
+                                breadType.getSelectedItem().toString(),
+                                getIngredientsOnPlatesTags()[0],
+                                getIngredientsOnPlatesTags()[1],
+                                getIngredientsOnPlatesTags()[2],
+                                getIngredientsOnPlatesTags()[3],
+                                5
+                        );
+
+                Intent intent = new Intent(DesignActivity.this, PayActivity.class);
+                //send the sandwich to the pay activity
+                intent.putExtra("Custom sandwich", s);
+                intent.putExtra("caller", "DesignActivity");
+                startActivity(intent);
             }
         });
         ad.setNegativeButton(getString(R.string.sandwich_dialog_cancel), new DialogInterface.OnClickListener()
@@ -327,7 +345,7 @@ public class DesignActivity extends AppCompatActivity {
         }
     }
 
-    //we not wan't a bunch of 'plate' shown when asking the user
+    //we don't wan't a bunch of 'plate' to be shown when asking the user
     //if their sandwich is alright
     private String buildSandwich ()
     {

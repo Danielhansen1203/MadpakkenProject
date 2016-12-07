@@ -2,8 +2,8 @@ package com.example.daniel.madpakkenproject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -13,15 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.daniel.madpakkenproject.Classes.Sandwich.Sandwich;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
-
-import org.w3c.dom.Text;
 
 import java.math.BigDecimal;
 
@@ -37,6 +35,7 @@ public class PayActivity extends AppCompatActivity {
     Controller ct;
     LinearLayout showCartContent;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +47,16 @@ public class PayActivity extends AppCompatActivity {
         showCartContent = (LinearLayout) findViewById(R.id.showcart);
 
         ct = (Controller)getApplicationContext();
+
+        //Intent intent = getIntent();
+        if (getIntent().getStringExtra("caller").equalsIgnoreCase("DesignActivity"))
+        {
+            Bundle extras = getIntent().getExtras();
+            //Intent i = getIntent();
+            Sandwich s = (Sandwich) extras.getSerializable("Custom sandwich");
+            ct.getCart().setProducts(s);
+            Log.e("PAY","WORKS");
+        }
 
         final int CartSize = ct.getCart().getCartsize();
 
