@@ -17,8 +17,8 @@ enum E_breadType
 public class Sandwich extends ModelProducts implements Serializable
 {
 
-    private int price = 10;
-    private String name = "Lav selv sandwich";
+    private int price = 5;
+    protected String name = "Desing selv";
     private String breadType;
     private String ingredient01;
     private String ingredient02;
@@ -26,19 +26,21 @@ public class Sandwich extends ModelProducts implements Serializable
     private String ingredient04;
 
     //testing
-    public Sandwich()
+   /* public Sandwich()
     {
-        super("", "", 0);
+        super("Design selv", "", 5);
         this.breadType = E_breadType.rugbrod.toString();
         this.ingredient01 = "salad";
         this.ingredient02 = "bacon";
         this.ingredient03 = "pepper";
         this.ingredient04 = "tomato";
     }
-
-    public Sandwich(String breadType, String ingre1, String ingre2, String ingre3, String ingre4)
+*/
+    public Sandwich(String name, String breadType, String ingre1, String ingre2, String ingre3, String ingre4, int price)
     {
-        super(breadType, ingre1, 10);
+        super(name,breadType+ingre1+ingre2+ingre3+ingre4,price);
+        this.name = name;
+        this.price = price;
         this.breadType = breadType;
         this.ingredient01 = ingre1;
         this.ingredient02 = ingre2;
