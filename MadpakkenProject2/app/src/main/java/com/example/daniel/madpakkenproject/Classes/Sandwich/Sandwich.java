@@ -13,7 +13,8 @@ enum E_breadType
 public class Sandwich
 {
 
-
+    private int price = 10;
+    private String name = "Lav selv sandwich";
     private String ingredient01;
     private String ingredient02;
     private String ingredient03;
@@ -90,4 +91,23 @@ public class Sandwich
         this.ingredient04 = ingredient04;
     }
 
+    public int getPrice()
+    {
+        return price;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 }
