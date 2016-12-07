@@ -48,15 +48,26 @@ public class PayActivity extends AppCompatActivity {
 
         ct = (Controller)getApplicationContext();
 
-        //Intent intent = getIntent();
-        if (getIntent().getStringExtra("caller").equalsIgnoreCase("DesignActivity"))
+        try
         {
-            Bundle extras = getIntent().getExtras();
-            //Intent i = getIntent();
-            Sandwich s = (Sandwich) extras.getSerializable("Custom sandwich");
-            ct.getCart().setProducts(s);
-            Log.e("PAY","WORKS");
+            if (getIntent().getStringExtra("caller").equalsIgnoreCase("DesignActivity"))
+            {
+                Bundle extras = getIntent().getExtras();
+
+                Sandwich s = (Sandwich) extras.getSerializable("Custom sandwich");
+                ct.getCart().setProducts(s);
+                Log.e("PAY","WORKS");
+            }
         }
+        catch (NullPointerException ne)
+        {
+            Log.e("Null", "" + ne);
+        }
+        catch (Exception e)
+        {
+            Log.e("","" + e);
+        }
+
 
         final int CartSize = ct.getCart().getCartsize();
 
