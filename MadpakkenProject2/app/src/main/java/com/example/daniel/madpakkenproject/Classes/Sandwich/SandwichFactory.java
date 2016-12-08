@@ -1,7 +1,5 @@
 package com.example.daniel.madpakkenproject.Classes.Sandwich;
 
-import android.util.Log;
-
 public class SandwichFactory
 {
     private static SandwichFactory instance = null;
@@ -29,23 +27,16 @@ public class SandwichFactory
             throw new IllegalArgumentException();
         }
 
-        Log.d("Sandwich facory","Create new sandwich");
         Sandwich s = new Sandwich(name, breadType, ingredient01, ingredient02, ingredient03, ingredient04, price);
 
-        Log.d("Sandwich facory","breadtype");
         s.setName(name);
         s.setBreadType(breadType);
-        Log.d("Sandwich facory","ing1");
         s.setIngredient01(ingredient01);
-        Log.d("Sandwich facory","ing2");
         s.setIngredient02(ingredient02);
-        Log.d("Sandwich facory","ing3");
         s.setIngredient03(ingredient03);
-        Log.d("Sandwich facory","ing4");
         s.setIngredient04(ingredient04);
         s.setPrice(price);
 
-        Log.d("Sandwich facory","return sandwich");
         return s;
     }
 }
