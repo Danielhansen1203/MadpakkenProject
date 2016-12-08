@@ -127,22 +127,6 @@ class DragListener implements View.OnDragListener
                     DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(otherPlateId), currentIngredient.getTag().toString());
                     break;
                 }
-                /*
-                //if an item has already been dropped here, the drop target will have a tag
-                if(tag != null)
-                {
-                    try
-                    {
-                        //TODO fix this making an error all the time
-                        //set the original ingredient visible again
-                        int intTag = Integer.parseInt(tag.toString());
-                        this.activity.findViewById(intTag).setVisibility(View.VISIBLE);
-                    }
-                    catch (NumberFormatException ne)
-                    {
-                        Log.e("ERROR: ", ne.toString());
-                    }
-                }*/
 
                 //update the tag on the drop target
                 dropTarget.setTag(currentIngredient.getTag());

@@ -26,10 +26,6 @@ import com.example.daniel.madpakkenproject.Classes.Sandwich.SandwichFactory;
 
 public class DesignActivity extends AppCompatActivity {
 
-    //debug
-    /*private Button button;
-    private TextView infobox;*/
-
     //setup drop targets
     private static ImageView ingredientChoice01, ingredientChoice02, ingredientChoice03, ingredientChoice04,
     //setup ingredients
@@ -145,10 +141,6 @@ public class DesignActivity extends AppCompatActivity {
         breadType = (Spinner) findViewById(R.id.bread_type);
 
         doneButton = (Button) findViewById(R.id.button_sandwitch_done);
-
-        //test/debug
-        /*button = (Button) findViewById(R.id.buttonl);
-        infobox = (TextView) findViewById(R.id.info);*/
     }
 
     //region GETTERS
@@ -224,21 +216,6 @@ public class DesignActivity extends AppCompatActivity {
         }
     }
     //endregion
-
-    //Test button
-    /*public void onClickTest(View view)
-    {
-        infobox.setText("");
-        infobox.append("" + breadType.getSelectedItem().toString());
-        infobox.append(System.getProperty("line.separator"));
-        infobox.append("plateTag [0]: " + getIngredientsOnPlatesTags()[0]);
-        infobox.append(System.getProperty("line.separator"));
-        infobox.append("plateTag [1]: " + getIngredientsOnPlatesTags()[1]);
-        infobox.append(System.getProperty("line.separator"));
-        infobox.append("plateTag [2]: " + getIngredientsOnPlatesTags()[2]);
-        infobox.append(System.getProperty("line.separator"));
-        infobox.append("plateTag [3]: " + getIngredientsOnPlatesTags()[3]);
-    }*/
 
     //brings up a dialog asking the user if thier sandwich is alright
     //provided that there is at least one ingredient on one of the plates

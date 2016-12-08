@@ -25,17 +25,6 @@ public class Sandwich extends ModelProducts implements Serializable
     private String ingredient03;
     private String ingredient04;
 
-    //testing
-   /* public Sandwich()
-    {
-        super("Design selv", "", 5);
-        this.breadType = E_breadType.rugbrod.toString();
-        this.ingredient01 = "salad";
-        this.ingredient02 = "bacon";
-        this.ingredient03 = "pepper";
-        this.ingredient04 = "tomato";
-    }
-*/
     public Sandwich(String name, String breadType, String ingre1, String ingre2, String ingre3, String ingre4, int price)
     {
         super(name,breadType+ingre1+ingre2+ingre3+ingre4,price);

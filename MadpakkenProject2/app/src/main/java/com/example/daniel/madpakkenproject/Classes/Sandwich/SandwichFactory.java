@@ -48,11 +48,4 @@ public class SandwichFactory
         Log.d("Sandwich facory","return sandwich");
         return s;
     }
-
-    //testing
-    /*public Sandwich createSandwich()
-    {
-        return new Sandwich();
-    }
-    */
 }

@@ -147,29 +147,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignTop="@+id/imageView_ingredient_bacon" />
 
-    <!-- Testing -->
-    <!--Button
-        android:text="Test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickTest"
-        android:id="@+id/button"
-        android:layout_above="@+id/imageView_ingredient_bacon"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="19dp" />
-
-    <TextView
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/info"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" /-->
-
 <!-- This is needed because having a dropdown menu with a background color
      AND a arrow button (that indicates it's a drop down menu) is beyond androids capabilities -->
     <RelativeLayout
