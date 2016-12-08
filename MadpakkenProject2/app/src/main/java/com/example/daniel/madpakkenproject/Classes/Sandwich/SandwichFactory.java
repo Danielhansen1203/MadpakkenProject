@@ -11,7 +11,7 @@ public class SandwichFactory
 
     }
 
-    public static SandwichFactory getInstance()
+    public static synchronized SandwichFactory getInstance()
     {
         if (instance == null)
         {
