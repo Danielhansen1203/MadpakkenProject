@@ -204,7 +204,7 @@ public class DesignActivity extends AppCompatActivity {
     {
         return ingredientsOnPlatesTags;
     }
-    public static void setIngredientsOnPlatesIds (int index, String newTag)
+    public static void setIngredientsOnPlatesTags(int index, String newTag)
     {
         if (index > ingredientsOnPlatesTags.length -1)
         {

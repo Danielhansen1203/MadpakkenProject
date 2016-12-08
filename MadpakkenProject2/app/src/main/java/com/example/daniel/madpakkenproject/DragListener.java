@@ -55,14 +55,14 @@ class DragListener implements View.OnDragListener
                 ImageView dropTarget = (ImageView) v;
 
                 //Id's of the plates
-                List<Integer> plateIds = new ArrayList<Integer>();
+                List<Integer> plateIds = new ArrayList<>();
                 plateIds.add(DesignActivity.getIngredientChoice01().getId());
                 plateIds.add(DesignActivity.getIngredientChoice02().getId());
                 plateIds.add(DesignActivity.getIngredientChoice03().getId());
                 plateIds.add(DesignActivity.getIngredientChoice04().getId());
 
                 //Id's of the ingredients
-                List<Integer> ingredientIds = new ArrayList<Integer>();
+                List<Integer> ingredientIds = new ArrayList<>();
                 ingredientIds.add(DesignActivity.getIngredient_bacon().getId());
                 ingredientIds.add(DesignActivity.getIngredient_cheese().getId());
                 ingredientIds.add(DesignActivity.getIngredient_egg().getId());
@@ -75,7 +75,6 @@ class DragListener implements View.OnDragListener
                 //get the tag of the drop target
                 Object defaultPladeTag = DesignActivity.getdefaultPlateTag();
                 dropTarget.setTag(defaultPladeTag);
-                Object tag = dropTarget.getTag();
 
                 //prevent plates form being dropped on ech other
                 if( dropped.getDrawable().getConstantState().equals(this.activity.getResources().getDrawable(R.drawable.plate).getConstantState()))
@@ -90,7 +89,7 @@ class DragListener implements View.OnDragListener
                     //in this case the plate is 'currentIngredient'
                     ((ImageView) currentIngredient).setImageDrawable(DesignActivity.getPlateTemplate());
                     currentIngredient.setTag(defaultPladeTag);
-                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(otherPlateId), defaultPladeTag.toString());
+                    DesignActivity.setIngredientsOnPlatesTags(Integer.parseInt(otherPlateId), defaultPladeTag.toString());
                     break;
                 }
                 //prevent ingredients from being dropped in the remove ingredient imageview
@@ -118,20 +117,21 @@ class DragListener implements View.OnDragListener
 
                     //update tags
                     //set old tag on new plate
-                    DesignActivity.setIngredientsOnPlatesIds(getPladeNumber(), dropTarget.getTag().toString());
+                    DesignActivity.setIngredientsOnPlatesTags(getPladeNumber(), dropTarget.getTag().toString());
 
                     //reset the tag on the old plate
                     currentIngredient.setTag(defaultPladeTag);
 
                     //reset old plate
-                    DesignActivity.setIngredientsOnPlatesIds(Integer.parseInt(otherPlateId), currentIngredient.getTag().toString());
+                    DesignActivity.setIngredientsOnPlatesTags(Integer.parseInt(otherPlateId), currentIngredient.getTag().toString());
                     break;
                 }
 
                 //update the tag on the drop target
                 dropTarget.setTag(currentIngredient.getTag());
 
-                DesignActivity.setIngredientsOnPlatesIds(pladeNumber, dropTarget.getTag().toString());
+                //update the tag array
+                DesignActivity.setIngredientsOnPlatesTags(getPladeNumber(), dropTarget.getTag().toString());
 
                 break;
             case DragEvent.ACTION_DRAG_ENDED:
