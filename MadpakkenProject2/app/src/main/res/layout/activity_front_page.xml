@@ -5,7 +5,6 @@
     android:id="@+id/activity_front_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context="com.example.daniel.madpakkenproject.Front_page"
     android:orientation="vertical"
     >
@@ -23,6 +22,16 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:text="Velkommen"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"/>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -31,18 +40,6 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/prompt_welcome"
-        android:textColor="@color/textColor"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:id="@+id/welcome_txt"
-
-        />
 
     <Button
         android:background="@drawable/button_selecter"

@@ -23,9 +23,6 @@ public class Front_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
-        textView = (TextView)findViewById(R.id.welcome_txt);
-        String message = getIntent().getStringExtra("message");
-        textView.setText(message);
 
        menu = (Button) findViewById(R.id.menu);
        design = (Button) findViewById(R.id.design);
